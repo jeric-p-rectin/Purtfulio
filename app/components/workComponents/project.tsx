@@ -44,7 +44,7 @@ export default function Project({projectName, projectImagePath, projectDescripti
                     style={{width: '100%', height: '100%'}}
                 />
             </div>
-            <p className="font-lato text-sm my-2">{projectDescription}</p>
+            <p className="Project-Description font-lato text-sm my-2">{projectDescription}</p>
             <div className="grid grid-cols-3 sm:grid-cols-4 my-2">
                 {state.map((tag) => {
                     return <span key={Math.random()} className="border-2 text-center text-sm my-1 shadow-sm mr-1 bg-fourtuary rounded-full px-2 py-1">{tag}</span>

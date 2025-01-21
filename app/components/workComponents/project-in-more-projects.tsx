@@ -4,7 +4,7 @@ import CurvedArrow from "./curved-arrow";
 import XSymbol from "./x-symbol";
 import { useState } from "react";
 
-export default function Component() {
+export default function() {
     const [tags,] = useState(["TAE", "POOP", "IHE", "HALIMAW", "HALAH", "EDIWOW"]); 
 
     return (

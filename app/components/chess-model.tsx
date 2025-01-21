@@ -1,16 +1,16 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
-import { LinearToneMapping } from 'three';
+import { LinearToneMapping, Object3D } from 'three';
 import { useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 // Custom component to load and rotate the GLB model
 function Model() {
   const { scene } = useGLTF('/chess-scene.glb');
-  const modelRef = useRef(); // Reference to the model
+  const modelRef = useRef<Object3D>(null); // Specify the type of the ref
 
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' }); // Check if the device is desktop
-  
+
   // Rotate the model on each frame
   useFrame(() => {
     if (modelRef.current) {
@@ -41,9 +41,8 @@ const Scene = () => {
         toneMappingExposure: 1.5, // Adjust exposure (default is 1)
       }}
     >
-
-    <ambientLight intensity={0.5} />
-    <directionalLight position={[10, 10, 10]} intensity={2} />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 10]} intensity={2} />
 
       {/* 3D Model */}
       <Model />

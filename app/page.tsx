@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import anime from "animejs";
 import Practice from "./components/workComponents/more-projects";
 import Practice2 from "./components/workComponents/project-in-more-projects";
-import Practice3 from "./components/workComponents/click-to-visit";
+import Practice3 from "./components/workComponents/practice";
 
 export default function Home() {
 
@@ -53,9 +53,9 @@ export default function Home() {
     anime({
       targets: ['#Developer', "#Full-Stack", "#Introduction-Paragraph", 
         "#navbar-Jeric", "#navbar-sections", 
-        "#work-section-PROJECTS", "#Project-Name", "#Project-Description", // The svgs color in the work section change by state called "svgsColor" in the first lines of code
+        "#work-section-PROJECTS", "#Project-Name", ".Project-Description", // The svgs color in the work section change by state called "svgsColor" in the first lines of code
         "#Introduction-HELLO", "#Introduction-JERIC", ".Introduction-p",
-        "#Contact-LET", "#Contact-CONNECT", "#Contact-INTERESTED"
+        "#Contact-LET", "#Contact-CONNECT", "#Contact-INTERESTED",
       ],
       color: toColor,
       duration: 1000, // Duration of the animation
