@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import anime from "animejs";
 import Practice from "./components/workComponents/more-projects";
 import Practice2 from "./components/workComponents/project-in-more-projects";
-import Practice3 from "./components/workComponents/practice";
+import Practice3 from "./components/workComponents/click-to-visit";
 
 export default function Home() {
 

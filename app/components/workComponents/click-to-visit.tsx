@@ -21,7 +21,7 @@ function SvgComponent({ svgColor }: { svgColor: string }) {
       </g>
       <text
         style={{
-          fontFamily: '"Lato"', // Use double quotes for font-family
+          fontFamily: "Lato", // Use double quotes for font-family
           fontSize: '34.3821px',
           letterSpacing: '1.9px',
           lineHeight: '55.0113px',
@@ -39,7 +39,7 @@ function SvgComponent({ svgColor }: { svgColor: string }) {
       </text>
       <defs>
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+          @import url(&apos;https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap&apos;);
         </style>
       </defs>
     </svg>

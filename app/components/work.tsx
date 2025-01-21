@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState} from 'react';
 import Project from './workComponents/project';
 import anime from 'animejs';
-import ClickMoreToVisit from './workComponents/practice';
+import ClickMoreToVisit from './workComponents/click-to-visit';
 
 interface SectionProp {
   svgsColor: string;
