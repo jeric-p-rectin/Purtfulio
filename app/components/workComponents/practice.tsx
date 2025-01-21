@@ -21,7 +21,7 @@ function SvgComponent({ svgColor }: { svgColor: string }) {
       </g>
       <text
         style={{
-          fontFamily: 'Lato',
+          fontFamily: '"Lato"', // Use double quotes for font-family
           fontSize: '34.3821px',
           letterSpacing: '1.9px',
           lineHeight: '55.0113px',
