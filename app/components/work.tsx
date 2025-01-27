@@ -1,94 +1,265 @@
-import { useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
+import MoreProjects from './workComponents/more-projects';
+import ProjectInMoreProjects from './workComponents/project-in-more-projects';
 import Project from './workComponents/project';
 import anime from 'animejs';
-import ClickMoreToVisit from './workComponents/practice';
+import ClickToVisit from './workComponents/click-to-visit';
+import { useMediaQuery } from 'react-responsive';
 
+// Interface defining the props for the Work component
 interface SectionProp {
   svgsColor: string;
-  changeBackground: () => void; // Reference callback for the section
+  changeBackground: () => void;
   animateAllTextsColor: () => void;
 }
 
-export default function Work({svgsColor, changeBackground, animateAllTextsColor} : SectionProp) {
-    const h1AndClickToVisitRef = useRef(null);
-    const buttonRef = useRef(null);
-    const divRef = useRef(null);
-    const workTop = useRef<any>(null);
-    const workBottom = useRef<any>(null);
+export default function Work({ svgsColor, changeBackground, animateAllTextsColor }: SectionProp) {
+  // References for various DOM elements
+  const h1AndClickToVisitRef = useRef(null);
+  const buttonRef = useRef(null);
+  const divRef = useRef(null);
+  const workTop = useRef<any>(null);
+  const workBottom = useRef<any>(null);
 
-    // let [state, setState] = useState(false);
+  // State variables for managing animation and UI
+  let [stopAnimation, setStopAnimation] = useState(true);
+  let [showMoreProjects, setShowMoreProjects] = useState(false);
 
-    useEffect(() => {
-        anime({
-            targets: [h1AndClickToVisitRef.current, divRef.current, buttonRef.current],
-            translateX: ['-2000px'],
-            easing: 'easeOutQuad',
-            duration: 0,
-        });
+  // States for showing specific projects
+  let [showFourthProject, setShowFourthProject] = useState<boolean>(false);
+  let [showFifthProject, setShowFifthProject] = useState<boolean>(false);
+  let [showSixthProject, setShowSixthProject] = useState<boolean>(false);
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                console.log("intersecting")
-                if (entry.isIntersecting) {
-                  anime({
-                    targets: [h1AndClickToVisitRef.current, divRef.current, buttonRef.current],
-                    translateX: ["0px"],
-                    easing: 'easeOutQuad',
-                    duration: 2000,
-                    // delay: anime.stagger(1000),
-                  });
-                  changeBackground();
-                  animateAllTextsColor();
-                  // observer.unobserve(entry.target); // Stop observing after the animation
-                }
-                // console.log("isIntersecting")
+  // Function to control which additional project to show
+  function showProject({ projectOrdinalNumber }: { projectOrdinalNumber: string }): void {
+    console.log(projectOrdinalNumber);
+    switch (projectOrdinalNumber) {
+      case '1':
+        setShowFourthProject((showFourthProject = true));
+        break;
+      case '2':
+        setShowFifthProject((showFifthProject = true));
+        break;
+      case '3':
+        setShowSixthProject((showSixthProject = true));
+        break;
+      default:
+        break;
+    }
+  }
+
+  // Anime.js animation for project slide-in
+  useEffect(() => {
+    anime({
+      targets: ['#fourth-project', '#fifth-project', '#sixth-project'],
+      translateX: ['-100%', 0],
+      easing: 'easeOutQuad',
+      duration: 2000,
+    });
+  }, [showFourthProject, showFifthProject, showSixthProject]);
+
+  // Media query to determine if the device is a phone or tablet
+  const isPhoneOrTablet = useMediaQuery({
+    query: '(max-width: 1023px)',
+  });
+
+  // Different styles for phone/tablet vs desktop
+  const classForPhoneAndTablet =
+    'bg-transparent fixed z-16 top-16 bottom-16 right-0 left-0 rounded-md h-auto w-auto p-5 m-0';
+  const classForDesktop =
+    'bg-transparent fixed z-10 top-16 bottom-16 right-72 left-72 rounded-md h-auto w-auto p-5 m-0';
+
+  // Initial animation for section and observing visibility
+  useEffect(() => {
+    if (stopAnimation) {
+      // Initial state of elements set to translate off-screen
+      anime({
+        targets: [h1AndClickToVisitRef.current, divRef.current, buttonRef.current],
+        translateX: ['-2000px'],
+        easing: 'easeOutQuad',
+        duration: 0,
+      });
+    }
+
+    // Intersection observer to trigger animations when section becomes visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log('intersecting');
+          if (entry.isIntersecting) {
+            if (stopAnimation) {
+              anime({
+                targets: [h1AndClickToVisitRef.current, divRef.current, buttonRef.current],
+                translateX: ['-2000px', '0px'],
+                easing: 'easeOutQuad',
+                duration: 2000,
               });
-            },
-            { threshold: 0.3 } // Triggers when any part of the target is visible in the viewport
-          );
+              setStopAnimation((stopAnimation = false));
+            }
+            // Trigger background and text color animations
+            changeBackground();
+            animateAllTextsColor();
+          }
+        });
+      },
+      { threshold: 0.3 } // Triggers when 30% of the element is visible
+    );
 
-          observer.observe(workTop.current);
-          observer.observe(workBottom.current);
-          // setState(state = true)
-    }, [])
+    observer.observe(workTop.current);
+    observer.observe(workBottom.current);
+  });
 
-    return (
-        <div id="work-section" className="flex flex-col p-5 pt-24 h-auto">
-            <div ref={workTop} className='self-center invisible'>tae</div>
-            <div ref={h1AndClickToVisitRef} className='flex flex-row'>
-              <h1 id='work-section-PROJECTS' className='font-abril text-3xl'>PROJECTS</h1>
-              <div className='size-40'>
-                <div>
-                  <ClickMoreToVisit svgColor={svgsColor} />
-                </div>  
-              </div> 
-            </div>
-            
-            <div className="flex flex-col" ref={divRef}>
-                <Project 
-                    projectName='BULALOI APP' 
-                    projectImagePath='/gojo.jpg'
-                    projectDescription='LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.' 
-                    projectTags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL']}
-                    svgColor={svgsColor}
-                />
-                <Project 
-                    projectName='BULALOI MANAGER' 
-                    projectImagePath='/gojo.jpg'
-                    projectDescription='LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.' 
-                    projectTags={['PYTHON', 'PYQT6', 'CSS', 'GIT', 'LIBRARIES']}
-                />
-                <Project 
-                    projectName='PROJECT 3' 
-                    projectImagePath='/gojo.jpg'
-                    projectDescription='LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.' 
-                    projectTags={['PYTHON', 'PYQT6', 'CSS', 'GIT', 'LIBRARIES']}
-                />
-                <button ref={buttonRef} className='font-lato text-primary shadow-md border self-center rounded-md w-36 p-2 m-2 bg-tertiary hover:bg-primary hover:text-secondary hover:transition border-black'>SEE MORE</button>
-            </div>
+  // Anime.js animation for the "More Projects" section
+  useEffect(() => {
+    if (showMoreProjects) {
+      anime({
+        targets: '#more-projects',
+        translateX: ['-100%', 0],
+        easing: 'easeOutQuad',
+        duration: 2000,
+      });
+    }
+  }, [showMoreProjects]);
 
-            <div ref={workBottom} className='self-center invisible'>tae</div>
+  // Function to slide in the "More Projects" section
+  function slideInMoreProjects() {
+    setShowMoreProjects((showMoreProjects = true));
+  }
+
+  // Function to slide out the "More Projects" section and optionally hide all projects
+  function slideOutMoreProjects({
+    MoreProjects,
+    slideOutAll,
+  }: {
+    MoreProjects: string[];
+    slideOutAll: boolean;
+  }) {
+    anime({
+      targets: MoreProjects,
+      translateX: ['-0%', '-100%'],
+      easing: 'easeOutQuad',
+      duration: 2000,
+      complete: () => {
+        if (slideOutAll) {
+          setShowMoreProjects((showMoreProjects = false));
+          setShowFourthProject((showFourthProject = false));
+          setShowFifthProject((showFifthProject = false));
+          setShowSixthProject((showSixthProject = false));
+        } else {
+          setShowFourthProject((showFourthProject = false));
+          setShowFifthProject((showFifthProject = false));
+          setShowSixthProject((showSixthProject = false));
+        }
+      },
+    });
+  }
+
+  // Main JSX return block
+  return (
+    <div id="work-section" className="flex flex-col p-5 pt-24 h-auto">
+      {/* Invisible element for intersection observation */}
+      <div ref={workTop} className="self-center invisible">
+        tae
+      </div>
+
+      {/* Header and "Click to Visit" component */}
+      <div ref={h1AndClickToVisitRef} className="flex flex-row">
+        <h1 id="work-section-PROJECTS" className="font-abril text-3xl">
+          PROJECTS
+        </h1>
+        <div className="size-40">
+          <ClickToVisit svgColor={svgsColor} />
         </div>
-    )
+      </div>
+
+      {/* Project list */}
+      <div className="flex flex-col" ref={divRef}>
+        <Project
+          title="BULALOI APP"
+          imagePath="/gojo.jpg"
+          description="LOREM IPSUM..."
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL']}
+          linkPath="https://www.instagram.com/"
+          svgColor={svgsColor}
+        />
+        <Project
+          title="BULALOI MANAGER"
+          imagePath="/gojo.jpg"
+          description="LOREM IPSUM..."
+          tags={['PYTHON', 'PYQT6', 'CSS', 'GIT', 'LIBRARIES']}
+          linkPath="https://www.facebook.com/"
+          svgColor={svgsColor}
+        />
+        <Project
+          title="PROJECT 3"
+          imagePath="/gojo.jpg"
+          description="LOREM IPSUM..."
+          tags={['PYTHON', 'PYQT6', 'CSS', 'GIT', 'LIBRARIES']}
+          linkPath="https://www.youtube.com/"
+          svgColor={svgsColor}
+        />
+        {/* Button to show more projects */}
+        <button
+          onClick={() => slideInMoreProjects()}
+          ref={buttonRef}
+          className="font-lato cursor-pointer text-primary shadow-md border self-center rounded-md w-36 p-2 m-2 bg-tertiary hover:bg-primary hover:text-secondary hover:transition border-black"
+        >
+          SEE MORE
+        </button>
+      </div>
+
+      {/* Conditional rendering for "More Projects" */}
+      {showMoreProjects && (
+        <div
+          id="more-projects"
+          className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}
+        >
+          <MoreProjects slideOutMoreProjects={slideOutMoreProjects} showProject={showProject} />
+        </div>
+      )}
+
+      {/* Conditional rendering for individual projects */}
+      {showFourthProject && (
+        <div id="fourth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
+          <ProjectInMoreProjects
+            title="First Project"
+            description="LOREM IPSUM..."
+            imagePath="/gojo.jpg"
+            linkPath="https://www.youtube.com/"
+            tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'Tailwind', 'VERCEL']}
+            slideOutMoreProjects={slideOutMoreProjects}
+          />
+        </div>
+      )}
+      {showFifthProject && (
+        <div id="fifth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
+          <ProjectInMoreProjects
+            title="Second Project"
+            description="LOREM IPSUM..."
+            imagePath="/gojo.jpg"
+            linkPath="https://www.facebook.com/"
+            tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'Tailwind', 'VERCEL']}
+            slideOutMoreProjects={slideOutMoreProjects}
+          />
+        </div>
+      )}
+      {showSixthProject && (
+        <div id="sixth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
+          <ProjectInMoreProjects
+            title="Third Project"
+            description="LOREM IPSUM..."
+            imagePath="/gojo.jpg"
+            linkPath="https://www.instagram.com/"
+            tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'Tailwind', 'VERCEL']}
+            slideOutMoreProjects={slideOutMoreProjects}
+          />
+        </div>
+      )}
+
+      {/* Invisible element for intersection observation */}
+      <div ref={workBottom} className="self-center invisible">
+        tae
+      </div>
+    </div>
+  );
 }

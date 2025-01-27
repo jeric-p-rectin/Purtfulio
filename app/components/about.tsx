@@ -13,30 +13,33 @@ export default function About({changeBackground, animateAllTextsColor} : Section
     const aboutTop = useRef<any>(null)
     const aboutBottom = useRef<any>(null)
 
-    let [state, setState] = useState(false);
+    let [stopAnimation, setStopAnimation] = useState(true);
 
     useEffect(() => {
-        anime({
-            targets: [divRef.current],
-            translateX: ['-1000px'],
-            easing: 'easeOutQuad',
-            duration: 0,
-        });
+        if (stopAnimation) {
+            anime({
+                targets: [divRef.current],
+                translateX: ['-1000px'],
+                easing: 'easeOutQuad',
+                duration: 0,
+            });
+        }
 
         const observer = new IntersectionObserver(
             (entries) => {
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                  anime({
-                    targets: [entry.target, divRef.current],
-                    translateX: "0px",
-                    easing: 'easeOutQuad',
-                    duration: 2000,
-                  });
-                  changeBackground();
-                  animateAllTextsColor();
-                //   observer.unobserve(entry.target); // Stop observing after the animation
-                }
+                    if (stopAnimation) {
+                        anime({
+                            targets: [entry.target, divRef.current],
+                            translateX: "0px",
+                            easing: 'easeOutQuad',
+                            duration: 2000,
+                        });
+                        setStopAnimation(stopAnimation = false)
+                    }
+                    changeBackground();
+                    animateAllTextsColor();                }
               });
             },
             { threshold: 0.3 } // Triggers when any part of the target is visible in the viewport
@@ -44,8 +47,7 @@ export default function About({changeBackground, animateAllTextsColor} : Section
 
         observer.observe(aboutTop.current);
         observer.observe(aboutBottom.current);
-        setState(state = true)
-    }, [state]);
+    });
 
     return (
         <div id="about-section" className="flex flex-col p-5 h-auto">

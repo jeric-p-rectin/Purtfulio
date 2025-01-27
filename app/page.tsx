@@ -7,9 +7,6 @@ import About from "./components/about";
 import Contact from "./components/contact";
 import { useEffect, useRef, useState } from "react";
 import anime from "animejs";
-import Practice from "./components/workComponents/more-projects";
-import Practice2 from "./components/workComponents/project-in-more-projects";
-import Practice3 from "./components/workComponents/practice";
 
 export default function Home() {
 
@@ -68,8 +65,6 @@ export default function Home() {
   return (
     <>
       <Navbar bottomLineGrowColor={bottomLineGrowColor} />
-      {/* <Practice /> */}
-      {/* <Practice2 /> */}
       <div ref={divRef} className="lg:px-72" style={{
         backgroundColor: background.current.color, // Dynamic background color
         transition: 'background-color 1s ease', // Fallback transition
@@ -80,7 +75,6 @@ export default function Home() {
         <Contact changeBackground={() => animateBackgroundColor("#f5f5f5")} animateAllTextsColor={() => animateAllTextsColor("#2C2C2C")}/> 
       </div>
       <Footer />
-      {/* <Practice3 /> */}
     </>
   );
 }

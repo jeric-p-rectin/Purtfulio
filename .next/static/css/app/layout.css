@@ -582,8 +582,8 @@ video {
 .relative {
   position: relative;
 }
-.bottom-20 {
-  bottom: 5rem;
+.bottom-16 {
+  bottom: 4rem;
 }
 .left-0 {
   left: 0px;
@@ -591,26 +591,17 @@ video {
 .left-72 {
   left: 18rem;
 }
-.left-\[18\.5rem\] {
-  left: 18.5rem;
-}
 .right-0 {
   right: 0px;
 }
 .right-72 {
   right: 18rem;
 }
-.right-\[18\.5rem\] {
-  right: 18.5rem;
-}
 .top-0 {
   top: 0px;
 }
-.top-20 {
-  top: 5rem;
-}
-.top-24 {
-  top: 6rem;
+.top-16 {
+  top: 4rem;
 }
 .top-3 {
   top: 0.75rem;
@@ -631,6 +622,10 @@ video {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
 }
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -638,6 +633,10 @@ video {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .my-4 {
   margin-top: 1rem;
@@ -649,6 +648,9 @@ video {
 }
 .mb-4 {
   margin-bottom: 1rem;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 .mb-auto {
   margin-bottom: auto;
@@ -671,6 +673,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.block {
+  display: block;
+}
 .flex {
   display: flex;
 }
@@ -687,6 +692,9 @@ video {
 }
 .h-16 {
   height: 4rem;
+}
+.h-20 {
+  height: 5rem;
 }
 .h-56 {
   height: 14rem;
@@ -738,6 +746,9 @@ video {
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .flex-row {
   flex-direction: row;
 }
@@ -765,6 +776,9 @@ video {
 .self-center {
   align-self: center;
 }
+.overflow-auto {
+  overflow: auto;
+}
 .rounded-full {
   border-radius: 9999px;
 }
@@ -791,6 +805,10 @@ video {
 .border-b-2 {
   border-bottom-width: 2px;
 }
+.border-\[\#FFFFFF\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -799,13 +817,21 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(35 43 43 / var(--tw-border-opacity));
 }
-.border-\[\#FFFFFF\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
 .bg-\[\#3f3f3f\] {
   --tw-bg-opacity: 1;
   background-color: rgb(63 63 63 / var(--tw-bg-opacity));
+}
+.bg-\[\#cacaca\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 202 202 / var(--tw-bg-opacity));
+}
+.bg-\[\#f2eeee\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 238 238 / var(--tw-bg-opacity));
+}
+.bg-\[\#f2f7f2\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 247 242 / var(--tw-bg-opacity));
 }
 .bg-fourtuary {
   --tw-bg-opacity: 1;
@@ -826,12 +852,8 @@ video {
 .bg-transparent {
   background-color: transparent;
 }
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
 .bg-with-opacity {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/gojo.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/gojo.jpg');
 }
 .bg-\[length\:100\%_100\%\] {
   background-size: 100% 100%;
@@ -901,6 +923,9 @@ video {
   font-size: 3rem;
   line-height: 1;
 }
+.text-\[10px\] {
+  font-size: 10px;
+}
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -913,8 +938,16 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
 .font-medium {
   font-weight: 500;
+}
+.text-\[\#000000\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .text-primary {
   --tw-text-opacity: 1;
@@ -1113,13 +1146,39 @@ body {
   .sm\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  .sm\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {
 
+  .lg\:my-6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .lg\:h-fit {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+
   .lg\:px-72 {
     padding-left: 18rem;
     padding-right: 18rem;
+  }
+
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@media (min-height: 800px) and (min-width: 1024px) {
+
+  .custom\:overflow-visible {
+    overflow: visible;
   }
 }
 

@@ -14,6 +14,7 @@ export default function Contact({changeBackground, animateAllTextsColor} : Secti
     const h1AndH2Ref = useRef(null);
     const buttonsRef = useRef(null);
     const contactTop = useRef<any>(null);
+    const contactBottom = useRef<any>(null);
     const divRef = useRef(null);
 
     useEffect(() => {
@@ -43,6 +44,7 @@ export default function Contact({changeBackground, animateAllTextsColor} : Secti
             );
 
         observer.observe(contactTop.current);
+        observer.observe(contactBottom.current);
     }, []);
 
     return (
@@ -56,12 +58,13 @@ export default function Contact({changeBackground, animateAllTextsColor} : Secti
                 </div>
                 <div ref={buttonsRef} className="flex flex-col">
                     <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>FRONT END DEVELOPMENT</button>
-                    <button className={`${buttonCSS}`}>BACK END DEVELOPMENT</button>
-                    <button className={`${buttonCSS}`}>SEO MARKETING</button>
-                    <button className={`${buttonCSS}`}>WEB CONSULTANT</button>
-                    <button className={`${buttonCSS}`}>BUSSINESSES AND PIZZAS</button>
+                    <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>BACK END DEVELOPMENT</button>
+                    <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>SEO MARKETING</button>
+                    <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>WEB CONSULTANT</button>
+                    <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>BUSSINESSES AND PIZZAS</button>
                 </div>
             </div>
+            <div ref={contactBottom} className='invisible'>tae</div>
         </div>
     )
 }

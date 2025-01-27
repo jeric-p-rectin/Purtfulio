@@ -9,6 +9,7 @@ interface SectionProp {
 
 export default function Introduction({changeBackground, animateAllTextsColor}: SectionProp) {
     const introductionBottom = useRef<any>(null);
+    const introductionTop = useRef<any>(null)
     let [state, setState] = useState(false);
 
     useEffect(() => {
@@ -57,11 +58,13 @@ export default function Introduction({changeBackground, animateAllTextsColor}: S
             { threshold: 0.5 } // Triggers when any part of the target is visible in the viewport
         );
 
+        observer.observe(introductionTop.current);
         observer.observe(introductionBottom.current);
     }, [])
 
     return (
         <div id="introduction-section" className="flex flex-col h-screen p-5">
+            <div ref={introductionTop} className='invisible'>tae</div>
             <div className='flex flex-col m-auto'>
                 <h2 id="Creative" className="font-abril text-quinary text-2xl text-left">CREATIVE</h2>
                 <h1 id="Full-Stack" className="font-abril text-5xl">FULL-STACK</h1>
