@@ -1,13 +1,20 @@
-import Image from "next/image"
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
+    const router = useRouter();
+
+    function handleClick({urlPath}: {urlPath: string}) {
+        return router.push(`${urlPath}`);
+    };
+
     return (
         <div className="flex flex-col justify-center p-5 bg-secondary">
             <h1 className="text-primary text-center">&copy; 2024 Jeric&apos;s Portfolio</h1>
             <div className="flex flex-row m-2 justify-center">
-                <Image src="/facebook.png" alt="instagram logo" width={60} height={60} className="px-3 py-2 cursor-pointer" />
-                <Image src="/github.png" alt="linkedin logo" width={60} height={60} className="px-3 py-2 cursor-pointer" />
-                <Image src="/linkedin.png" alt="github logo" width={60} height={60} className="px-3 py-2 cursor-pointer" />
+                <Image onClick={() => handleClick({urlPath: "https://www.facebook.com/malganis.rectin/"})} src="/facebook.png" alt="instagram logo" width={60} height={60} className="px-3 py-2 cursor-pointer" />
+                <Image onClick={() => handleClick({urlPath: "https://github.com/Boboe16/"})} src="/github.png" alt="linkedin logo" width={60} height={60} className="px-3 py-2 cursor-pointer" />
+                <Image onClick={() => handleClick({urlPath: "https://www.linkedin.com/in/jeric-p-rectin-36ba26258/"})} src="/linkedin.png" alt="github logo" width={60} height={60} className="px-3 py-2 cursor-pointer" />
             </div>
         </div>
     )

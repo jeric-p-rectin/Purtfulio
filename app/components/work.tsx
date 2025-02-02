@@ -176,26 +176,26 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
       <div className="flex flex-col" ref={divRef}>
         <Project
           title="BULALOI APP"
-          imagePath="/gojo.jpg"
-          description="LOREM IPSUM..."
-          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL']}
-          linkPath="https://www.instagram.com/"
+          imagePath="/bulaloi-app.jpg"
+          description="BULALOI is a web application that allows users to download modded and non-modded paid/free games and apps for free. It serves as an alternative app marketplace similar to the Play Store."
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
+          linkPath="https://github.com/Boboe16/Bulaloi-App-Production/"
           svgColor={svgsColor}
         />
         <Project
           title="BULALOI MANAGER"
-          imagePath="/gojo.jpg"
-          description="LOREM IPSUM..."
-          tags={['PYTHON', 'PYQT6', 'CSS', 'GIT', 'LIBRARIES']}
-          linkPath="https://www.facebook.com/"
+          imagePath="/bulaloi-manager.jpg"
+          description="BULALOI MANAGER is a desktop application designed to manage the apps and games available in the BULALOI web app. It allows administrators to add, update, and delete applications with ease through a user-friendly interface."
+          tags={['PYTHON', 'PYQT6', 'CSS', 'GIT', 'GITHUB', 'LIBRARIES']}
+          linkPath="https://github.com/Boboe16/Bulaloi-Manager-Production/"
           svgColor={svgsColor}
         />
         <Project
-          title="PROJECT 3"
-          imagePath="/gojo.jpg"
-          description="LOREM IPSUM..."
-          tags={['PYTHON', 'PYQT6', 'CSS', 'GIT', 'LIBRARIES']}
-          linkPath="https://www.youtube.com/"
+          title="PORTFOLIO"
+          imagePath="/portfolio.jpg"
+          description="Welcome to my portfolio web app! This project showcases my skills, projects, and experience in web development, with a sleek and interactive design."
+          tags={['JAVASCRIPT', 'TYPESCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'TAILWIND', 'ANIMEJS', 'THREEJS', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
+          linkPath="http://jeric-portfolio.vercel.app/"
           svgColor={svgsColor}
         />
         {/* Button to show more projects */}
@@ -222,11 +222,11 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
       {showFourthProject && (
         <div id="fourth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
-            title="First Project"
-            description="LOREM IPSUM..."
-            imagePath="/gojo.jpg"
-            linkPath="https://www.youtube.com/"
-            tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'Tailwind', 'VERCEL']}
+            title="CALCULATOR"
+            description="A simple and efficient calculator web app built with React, designed for basic arithmetic operations with a clean and responsive UI."
+            imagePath="/calculator.jpg"
+            linkPath="https://github.com/Boboe16/Calculator"
+            tags={['JAVASCRIPT', 'HTML', 'CSS', 'REACT', 'BOOTSTRAP', 'NETLIFY', 'GIT', 'GITHUB']}
             slideOutMoreProjects={slideOutMoreProjects}
           />
         </div>
@@ -234,11 +234,11 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
       {showFifthProject && (
         <div id="fifth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
-            title="Second Project"
-            description="LOREM IPSUM..."
-            imagePath="/gojo.jpg"
+            title="DICTIONARY"
+            description="A lightweight and efficient browser extension that provides instant word definitions and translations. Perfect for students, researchers, and language learners."
+            imagePath="/bulaloi-dictionary.jpg"
             linkPath="https://www.facebook.com/"
-            tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'Tailwind', 'VERCEL']}
+            tags={['JAVASCRIPT', 'HTML', 'CSS', 'GIT', 'GITHUB']}
             slideOutMoreProjects={slideOutMoreProjects}
           />
         </div>
@@ -246,11 +246,11 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
       {showSixthProject && (
         <div id="sixth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
-            title="Third Project"
-            description="LOREM IPSUM..."
-            imagePath="/gojo.jpg"
+            title="NOTEPUD"
+            description="Notepud is a simple and efficient web application for taking notes and managing tasks. It helps users stay organized with an intuitive interface and essential features for productivity."
+            imagePath="/notepud.jpg"
             linkPath="https://www.instagram.com/"
-            tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'Tailwind', 'VERCEL']}
+            tags={['JAVASCRIPT', 'HTML', 'CSS', 'REACT', 'VERCEL', 'GIT', 'GITHUB']}
             slideOutMoreProjects={slideOutMoreProjects}
           />
         </div>

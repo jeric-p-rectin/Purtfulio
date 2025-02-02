@@ -14,6 +14,7 @@ type ComponentTypes = {
 
 export default function Component({title, description, imagePath, linkPath, tags, slideOutMoreProjects }: ComponentTypes) { 
     const router = useRouter();
+    const backgroundImage = `url('${imagePath}')`;
 
     return (
         <>
@@ -23,9 +24,10 @@ export default function Component({title, description, imagePath, linkPath, tags
                 <XSymbol color="#000000" slideOutMoreProjects={() => slideOutMoreProjects({MoreProjects: ["#more-projects" ,"#fourth-project", "#fifth-project", "#sixth-project"], slideOutAll: true})}/>
             </div>
             <div className="flex flex-col bg-[#cacaca] rounded-b-xl shadow-xl h-full px-8 py-2">
-                <div className="flex flex-row w-[100%] h-56">
-                    <Image src={`${imagePath}`} alt="screenshot of the project" width={100} height={100} style={{width: "100%", height: "100%"}} />
-                </div>
+                <div 
+                    className="w-full h-96 shadow-md border-secondary rounded-md bg-no-repeat bg-[length:100%_100%]"
+                    style={{ backgroundImage: backgroundImage }}
+                ></div>
                 <div className="h-20 overflow-auto my-3 lg:my-6 lg:h-fit custom:overflow-visible">
                     <p className="font-lato text-[#000000] text-[10px] lg:text-sm">
                         {description}

@@ -19,7 +19,7 @@ export default function Component({title, imagePath, description, tags, linkPath
     // const [arrowStroke, setArrowStroke] = useState<string>(svgColor as string);
 
     const ArrowId = title.replace(/ /g, "-");
-
+    const backgroundImage = `url('${imagePath}')`;
 
     function animateArrow({translateY}: {translateY: number}) {
         anime({
@@ -37,15 +37,10 @@ export default function Component({title, imagePath, description, tags, linkPath
                 <h2 id="-Name" className="group-hover:text-quinary transition font-lato font-medium text-xl my-2">{title}</h2>
                 <div id={ArrowId} className="relative top-3 h-fit w-fit"><BlackArrow arrowStroke={svgColor as string} /></div>
             </div>
-            <div className="w-full h-60">
-                <Image
-                    className="shadow-md border-secondary rounded-md"
-                    src={`${imagePath}`}
-                    alt="Placeholder  Image"
-                    width={300}
-                    height={300}
-                    style={{width: '100%', height: '100%'}}
-                />
+            <div 
+                className="w-full h-96 shadow-md border-secondary rounded-md bg-no-repeat bg-[length:100%_100%]"
+                style={{ backgroundImage: backgroundImage }}
+            >
             </div>
             <p className="-Description font-lato text-sm my-2">{description}</p>
             <div className="grid grid-cols-3 sm:grid-cols-4 my-2">
