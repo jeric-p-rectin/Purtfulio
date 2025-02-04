@@ -19,6 +19,8 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
   const buttonRef = useRef(null);
   const divRef = useRef(null);
   const workTop = useRef<any>(null);
+  const workMiddle = useRef<any>(null);
+  const workMiddle2 = useRef<any>(null);
   const workBottom = useRef<any>(null);
 
   // State variables for managing animation and UI
@@ -102,6 +104,8 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
     );
 
     observer.observe(workTop.current);
+    observer.observe(workMiddle.current);
+    observer.observe(workMiddle2.current);
     observer.observe(workBottom.current);
   });
 
@@ -204,6 +208,9 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
           linkPath="https://github.com/Boboe16/Bulaloi-App-Production/"
           svgColor={svgsColor}
         />
+
+        <div ref={workMiddle} className='self-center invisible'>tae</div>
+
         <Project
           title="BULALOI MANAGER"
           imagePath="/bulaloi-manager.jpg"
@@ -212,6 +219,9 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
           linkPath="https://github.com/Boboe16/Bulaloi-Manager-Production/"
           svgColor={svgsColor}
         />
+
+        <div ref={workMiddle2} className='self-center invisible'>tae</div>
+
         <Project
           title="PORTFOLIO"
           imagePath="/portfolio.jpg"

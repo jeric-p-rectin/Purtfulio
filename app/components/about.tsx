@@ -10,8 +10,9 @@ interface SectionProp {
 export default function About({changeBackground, animateAllTextsColor} : SectionProp) {
     const h1Ref = useRef(null);
     const divRef = useRef(null);
-    const aboutTop = useRef<any>(null)
-    const aboutBottom = useRef<any>(null)
+    const aboutTop = useRef<any>(null);
+    const aboutMiddle = useRef<any>(null);
+    const aboutBottom = useRef<any>(null);
 
     let [stopAnimation, setStopAnimation] = useState(true);
 
@@ -46,6 +47,7 @@ export default function About({changeBackground, animateAllTextsColor} : Section
           );
 
         observer.observe(aboutTop.current);
+        observer.observe(aboutMiddle.current);
         observer.observe(aboutBottom.current);
     });
 
@@ -62,6 +64,9 @@ export default function About({changeBackground, animateAllTextsColor} : Section
                     <p className="Introduction-p font-lato text-base my-8 indent-6">
                         I USE MY PASSION AND SKILLS TO CREATE AND DEVELOP APPS THAT CAN MAKE DIFFERENCE AND BRING IDEAS TO LIFE.
                     </p>
+                    <div ref={aboutMiddle} className="self-center invisible">
+                        tae
+                    </div>
                     <p className="Introduction-p text-base mt-8 indent-6">
                         I AM CONSTANTLY LEARNING AND EXPLORING NEW TECHNOLOGIES TO ENHANCE MY SKILLS 
                         AND STAY AHEAD IN THE EVER-EVOLVING TECH LANDSCAPE.
