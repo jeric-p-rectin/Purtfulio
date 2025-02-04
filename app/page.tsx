@@ -7,6 +7,7 @@ import About from "./components/about";
 import Contact from "./components/contact";
 import { useEffect, useRef, useState } from "react";
 import anime from "animejs";
+import Example from "./components/example";
 
 export default function Home() {
 
@@ -75,6 +76,7 @@ export default function Home() {
         <Contact changeBackground={() => animateBackgroundColor("#f5f5f5")} animateAllTextsColor={() => animateAllTextsColor("#2C2C2C")}/> 
       </div>
       <Footer />
+      <Example />
     </>
   );
 }

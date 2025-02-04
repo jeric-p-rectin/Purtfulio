@@ -23,12 +23,18 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
 
   // State variables for managing animation and UI
   let [stopAnimation, setStopAnimation] = useState(true);
+
+  // State for showing the more-projects section
   let [showMoreProjects, setShowMoreProjects] = useState(false);
+  const moreProjects = useRef<any>();
 
   // States for showing specific projects
   let [showFourthProject, setShowFourthProject] = useState<boolean>(false);
   let [showFifthProject, setShowFifthProject] = useState<boolean>(false);
   let [showSixthProject, setShowSixthProject] = useState<boolean>(false);
+  const fourthProject = useRef<any>();
+  const fifthProject = useRef<any>();
+  const sixthProject = useRef<any>();
 
   // Function to control which additional project to show
   function showProject({ projectOrdinalNumber }: { projectOrdinalNumber: string }): void {
@@ -48,16 +54,6 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
     }
   }
 
-  // Anime.js animation for project slide-in
-  useEffect(() => {
-    anime({
-      targets: ['#fourth-project', '#fifth-project', '#sixth-project'],
-      translateX: ['-100%', 0],
-      easing: 'easeOutQuad',
-      duration: 2000,
-    });
-  }, [showFourthProject, showFifthProject, showSixthProject]);
-
   // Media query to determine if the device is a phone or tablet
   const isPhoneOrTablet = useMediaQuery({
     query: '(max-width: 1023px)',
@@ -65,7 +61,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
 
   // Different styles for phone/tablet vs desktop
   const classForPhoneAndTablet =
-    'bg-transparent fixed z-16 top-16 bottom-16 right-0 left-0 rounded-md h-auto w-auto p-5 m-0';
+    'bg-transparent fixed z-10 top-16 bottom-16 right-0 left-0 rounded-md h-auto w-auto p-5 m-0';
   const classForDesktop =
     'bg-transparent fixed z-10 top-16 bottom-16 right-72 left-72 rounded-md h-auto w-auto p-5 m-0';
 
@@ -112,14 +108,40 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
   // Anime.js animation for the "More Projects" section
   useEffect(() => {
     if (showMoreProjects) {
-      anime({
-        targets: '#more-projects',
-        translateX: ['-100%', 0],
-        easing: 'easeOutQuad',
-        duration: 2000,
-      });
+      if (showMoreProjects) {
+        anime({
+          targets: '#more-projects',
+          translateX: ['-100%', 0],
+          easing: 'easeOutQuad',
+          duration: 1000,
+        });
+        document.body.style.overflow = "hidden";
+        document.body.style.pointerEvents = "none";
+        try {
+          if (moreProjects.current instanceof HTMLDivElement) {
+            moreProjects.current.style.pointerEvents = "auto";
+          }
+        } catch {console.log("Your shit isn't working")}
+      }
+    } else { 
+      document.body.style.overflow = "auto";
+      document.body.style.pointerEvents = "auto";
     }
   }, [showMoreProjects]);
+
+  // Anime.js animation for project slide-in
+  useEffect(() => {
+    anime({
+      targets: ['#fourth-project', '#fifth-project', '#sixth-project'],
+      translateX: ['-100%', 0],
+      easing: 'easeOutQuad',
+      duration: 1000,
+    });
+    fourthProject.current instanceof HTMLDivElement ? fourthProject.current.style.pointerEvents = "auto" : console.log("you fool")
+    fifthProject.current instanceof HTMLDivElement? fifthProject.current.style.pointerEvents = "auto" : console.log("you fool")
+    sixthProject.current instanceof HTMLDivElement? sixthProject.current.style.pointerEvents = "auto" : console.log("you fool")
+
+  }, [showFourthProject, showFifthProject, showSixthProject]);
 
   // Function to slide in the "More Projects" section
   function slideInMoreProjects() {
@@ -138,7 +160,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
       targets: MoreProjects,
       translateX: ['-0%', '-100%'],
       easing: 'easeOutQuad',
-      duration: 2000,
+      duration: 1000,
       complete: () => {
         if (slideOutAll) {
           setShowMoreProjects((showMoreProjects = false));
@@ -211,6 +233,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
       {/* Conditional rendering for "More Projects" */}
       {showMoreProjects && (
         <div
+        ref={moreProjects}
           id="more-projects"
           className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}
         >
@@ -220,7 +243,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
 
       {/* Conditional rendering for individual projects */}
       {showFourthProject && (
-        <div id="fourth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
+        <div ref={fourthProject} id="fourth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
             title="CALCULATOR"
             description="A simple and efficient calculator web app built with React, designed for basic arithmetic operations with a clean and responsive UI."
@@ -232,7 +255,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
         </div>
       )}
       {showFifthProject && (
-        <div id="fifth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
+        <div ref={fifthProject} id="fifth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
             title="DICTIONARY"
             description="A lightweight and efficient browser extension that provides instant word definitions and translations. Perfect for students, researchers, and language learners."
@@ -244,7 +267,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
         </div>
       )}
       {showSixthProject && (
-        <div id="sixth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
+        <div ref={sixthProject} id="sixth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
             title="NOTEPUD"
             description="Notepud is a simple and efficient web application for taking notes and managing tasks. It helps users stay organized with an intuitive interface and essential features for productivity."
