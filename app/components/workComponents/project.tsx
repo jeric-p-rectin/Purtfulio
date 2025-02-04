@@ -34,7 +34,7 @@ export default function Component({title, imagePath, description, tags, linkPath
     return (
         <div className="my-4">
             <div className="group flex flex-row w-fit cursor-pointer" onClick={() => router.push(`${linkPath}`)} onMouseEnter={() => animateArrow({ translateY: -10 })} onMouseLeave={() => {animateArrow({ translateY: 0 })}}>
-                <h2 id="-Name" className="group-hover:text-quinary transition font-lato font-medium text-xl my-2">{title}</h2>
+                <h2 id="Project-Name" className="group-hover:text-quinary transition font-lato font-medium text-xl my-2">{title}</h2>
                 <div id={ArrowId} className="relative top-3 h-fit w-fit"><BlackArrow arrowStroke={svgColor as string} /></div>
             </div>
             <div 
@@ -42,7 +42,7 @@ export default function Component({title, imagePath, description, tags, linkPath
                 style={{ backgroundImage: backgroundImage }}
             >
             </div>
-            <p className="-Description font-lato text-sm my-2">{description}</p>
+            <p className="Project-Description font-lato text-sm my-2">{description}</p>
             <div className="grid grid-cols-3 sm:grid-cols-4 my-2">
                 {state.map((tag) => {
                     return <span key={Math.random()} className="border-2 text-center text-sm my-1 shadow-sm mr-1 bg-fourtuary rounded-full px-2 py-1">{tag}</span>

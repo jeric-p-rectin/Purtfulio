@@ -70,7 +70,7 @@ export default function Introduction({changeBackground, animateAllTextsColor}: S
                 <h1 id="Full-Stack" className="font-abril text-5xl">FULL-STACK</h1>
                 <h1 id="Developer"className="font-abril text-5xl">DEVELOPER</h1>
                 <p id='Introduction-Paragraph' className="font-lato text-base my-8 ml-1 indent-6">
-                    I AM A DEVELOPER FROM PHILIPPINES. I HAVE 2+ YEARS OF EXPERIENCE IN DEVELOPING VARIOUS TYPES OF WEB APPLICATIONS. I LOVE NATURE, PIZZA AND ART.
+                    I AM A DEVELOPER FROM PHILIPPINES. I HAVE MORE THAN TWO YEARS OF EXPERIENCE IN DEVELOPING VARIOUS TYPES OF WEB APPLICATIONS. I LOVE NATURE, PIZZA AND ART.
                 </p>
                 <a id="Contact-Me" className="font-lato text-secondary shadow-md border self-end text-center rounded-md w-36 p-2 m-2 bg-fourtuary hover:bg-tertiary hover:text-primary hover:transition border-black" href={"#contact-section"}>CONTACT ME</a>
             </div>
