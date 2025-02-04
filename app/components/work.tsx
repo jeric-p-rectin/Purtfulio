@@ -270,7 +270,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
             title="DICTIONARY"
             description="A lightweight and efficient browser extension that provides instant word definitions and translations. Perfect for students, researchers, and language learners."
             imagePath="/bulaloi-dictionary.jpg"
-            linkPath="https://www.facebook.com/"
+            linkPath="https://github.com/Boboe16/Dictionary-Browser-Extension"
             tags={['JAVASCRIPT', 'HTML', 'CSS', 'GIT', 'GITHUB']}
             slideOutMoreProjects={slideOutMoreProjects}
           />
@@ -282,7 +282,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
             title="NOTEPUD"
             description="Notepud is a simple and efficient web application for taking notes and managing tasks. It helps users stay organized with an intuitive interface and essential features for productivity."
             imagePath="/notepud.jpg"
-            linkPath="https://www.instagram.com/"
+            linkPath="https://github.com/Boboe16/React_App-Notes-with-To-dos"
             tags={['JAVASCRIPT', 'HTML', 'CSS', 'REACT', 'VERCEL', 'GIT', 'GITHUB']}
             slideOutMoreProjects={slideOutMoreProjects}
           />
