@@ -53,7 +53,7 @@ export default function About({changeBackground, animateAllTextsColor} : Section
 
     return (
         <div id="about-section" className="flex flex-col p-5 h-auto">
-            <div ref={aboutTop} className="invisible">tae1</div>
+            <div ref={aboutTop} className="self-center size-0 invisible">tae1</div>
             <div className="flex flex-col pt-20" ref={divRef}>
                 <div ref={h1Ref}>
                     <h1 id="Introduction-HELLO" className="font-abril text-5xl">HELLO.</h1>
@@ -64,7 +64,7 @@ export default function About({changeBackground, animateAllTextsColor} : Section
                     <p className="Introduction-p font-lato text-base my-8 indent-6">
                         I USE MY PASSION AND SKILLS TO CREATE AND DEVELOP APPS THAT CAN MAKE DIFFERENCE AND BRING IDEAS TO LIFE.
                     </p>
-                    <div ref={aboutMiddle} className="self-center invisible">
+                    <div ref={aboutMiddle} className="self-center size-0 invisible">
                         tae
                     </div>
                     <p className="Introduction-p text-base mt-8 indent-6">
@@ -74,9 +74,9 @@ export default function About({changeBackground, animateAllTextsColor} : Section
                         I AM DEDICATED TO DELIVERING HIGH QUALITY WORK THAT EXCEEDS EXPECTATIONS.
                     </p>
                 </div>
+                <div ref={aboutBottom} className="self-center size-0 invisible">tae2</div>
                 <ChessModel />
             </div>
-            <div ref={aboutBottom} className="invisible">tae2</div>
         </div>
     )
 }

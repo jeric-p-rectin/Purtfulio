@@ -184,7 +184,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
   return (
     <div id="work-section" className="flex flex-col p-5 pt-24 h-auto">
       {/* Invisible element for intersection observation */}
-      <div ref={workTop} className="self-center invisible">
+      <div ref={workTop} className="self-center size-0  invisible">
         tae
       </div>
 
@@ -209,7 +209,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
           svgColor={svgsColor}
         />
 
-        <div ref={workMiddle} className='self-center invisible'>tae</div>
+        <div ref={workMiddle} className='self-center size-0 invisible'>tae</div>
 
         <Project
           title="BULALOI MANAGER"
@@ -220,7 +220,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
           svgColor={svgsColor}
         />
 
-        <div ref={workMiddle2} className='self-center invisible'>tae</div>
+        <div ref={workMiddle2} className='self-center size-0 invisible'>tae</div>
 
         <Project
           title="PORTFOLIO"
@@ -290,7 +290,7 @@ export default function Work({ svgsColor, changeBackground, animateAllTextsColor
       )}
 
       {/* Invisible element for intersection observation */}
-      <div ref={workBottom} className="self-center invisible">
+      <div ref={workBottom} className="self-center size-0 invisible">
         tae
       </div>
     </div>

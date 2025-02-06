@@ -693,6 +693,14 @@ video {
   width: 10rem;
   height: 10rem;
 }
+.size-0 {
+  width: 0px;
+  height: 0px;
+}
+.size-1 {
+  width: 0.25rem;
+  height: 0.25rem;
+}
 .h-16 {
   height: 4rem;
 }

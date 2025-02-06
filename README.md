@@ -1,71 +1,36 @@
-# Portfolio Web App
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Welcome to my portfolio web app! This project showcases my skills, projects, and experience in web development, with a sleek and interactive design.
+## Getting Started
 
-## 🚀 Features
+First, run the development server:
 
-- Responsive and modern UI built with Tailwind CSS
-- Smooth animations powered by Anime.js
-- 3D elements and interactive visuals using Three.js
-- Showcases projects, skills, and contact information
-- Fast performance and seamless navigation with Next.js
-- Hosted on Vercel for optimal deployment
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## 🛠 Tech Stack
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This portfolio is built using:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- **JavaScript & TypeScript** - Core programming languages
-- **HTML & CSS** - Structure and styling
-- **Next.js** - React framework for SSR and performance
-- **React.js** - Component-based UI development
-- **Tailwind CSS** - Utility-first styling
-- **Anime.js** - Smooth animations and transitions
-- **Three.js** - 3D elements and visual effects
-- **Vercel** - Deployment and hosting
-- **Git & GitHub** - Version control and repository hosting
-- **Libraries** - Various dependencies for enhanced functionality
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## 📦 Installation & Setup
+## Learn More
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Boboe16/portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd portfolio
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
-5. Open your browser and go to:
-   ```
-   http://localhost:3000
-   ```
+To learn more about Next.js, take a look at the following resources:
 
-## 🌐 Deployment
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-This portfolio is deployed on **Vercel**. To deploy your own version:
-1. Push your code to a GitHub repository.
-2. Connect the repo to Vercel.
-3. Deploy with a single click.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## 🤝 Contribution
+## Deploy on Vercel
 
-Contributions are welcome! To contribute:
-- Fork the repository.
-- Create a new branch (`feature/your-feature`)
-- Commit your changes.
-- Push to the branch and create a pull request.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## 📧 Contact
-
-For any inquiries or collaboration opportunities, feel free to reach out:
-- **Email**: jerixmodz@gmail.com
-- **GitHub**: [Boboe16](https://github.com/Boboe16)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
