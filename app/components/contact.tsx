@@ -14,6 +14,7 @@ export default function Contact({changeBackground, animateAllTextsColor} : Secti
     const h1AndH2Ref = useRef(null);
     const buttonsRef = useRef(null);
     const contactTop = useRef<any>(null);
+    const contactMiddle = useRef<any>(null);
     const contactBottom = useRef<any>(null);
     const divRef = useRef(null);
 
@@ -44,6 +45,7 @@ export default function Contact({changeBackground, animateAllTextsColor} : Secti
             );
 
         observer.observe(contactTop.current);
+        observer.observe(contactMiddle.current)
         observer.observe(contactBottom.current);
     }, []);
 
@@ -56,6 +58,7 @@ export default function Contact({changeBackground, animateAllTextsColor} : Secti
                     <h1 id="Contact-CONNECT" className="font-abril text-5xl">CONNECT</h1>
                     <h2 id="Contact-INTERESTED" className="font-abril text-xl mb-4">I AM ALWAYS INTERESTED ABOUT</h2>
                 </div>
+                <div ref={contactMiddle} className='invisible'>tae</div>
                 <div ref={buttonsRef} className="flex flex-col">
                     <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>FRONT END DEVELOPMENT</button>
                     <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>BACK END DEVELOPMENT</button>
