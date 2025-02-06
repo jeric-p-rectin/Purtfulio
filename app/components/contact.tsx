@@ -58,7 +58,11 @@ export default function Contact({changeBackground, animateAllTextsColor} : Secti
                     <h1 id="Contact-CONNECT" className="font-abril text-5xl">CONNECT</h1>
                     <h2 id="Contact-INTERESTED" className="font-abril text-xl mb-4">I AM ALWAYS INTERESTED ABOUT</h2>
                 </div>
+<<<<<<< HEAD
                 <div ref={contactMiddle} className='self-center size-1 invisible'>tae</div>
+=======
+                <div ref={contactMiddle} className='invisible'>tae</div>
+>>>>>>> 4447c6dc44c0fae8247bb85b686e4e5abcd82e53
                 <div ref={buttonsRef} className="flex flex-col">
                     <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>FRONT END DEVELOPMENT</button>
                     <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS}`}>BACK END DEVELOPMENT</button>
