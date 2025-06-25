@@ -10,8 +10,13 @@ import anime from "animejs";
 
 export default function Home() {
 
- let [bottomLineGrowColor, setBottomLineGrowColor] = useState("#FFFFFF");
- let [sgvsColor, setSvgsColor] = useState("#FFFFFF");
+ // Original dynamic color states
+ // let [bottomLineGrowColor, setBottomLineGrowColor] = useState("#FFFFFF");
+ // let [sgvsColor, setSvgsColor] = useState("#FFFFFF");
+
+ // Fixed colors
+ const bottomLineGrowColor = "#FFFFFF";
+ const sgvsColor = "#FFFFFF";
 
   interface Type {
     color: string;
@@ -21,7 +26,9 @@ export default function Home() {
   const divRef = useRef<any>();
 
   const background = useRef<Type>({
-    color: "#f5f5f5",
+    // Original dynamic color
+    // color: "#f5f5f5",
+    color: "#2C2C2C",
     setColor(el: string) {
       this.color = el; // Update the color property
     },
@@ -35,44 +42,65 @@ export default function Home() {
     })
   }, [])
 
-  // Function to animate the background color transition
-  const animateBackgroundColor = (backgroundColor: string) => {
-    anime({
-      targets: divRef.current,
-      backgroundColor: backgroundColor,
-      duration: 1000, // Duration of the animation
-      easing: 'easeInOutQuad', // Smooth easing
-      update: (anim) => background.current.setColor(anim.animations[0].currentValue as string),
-    });
-  };
+  // Original animation function
+  // const animateBackgroundColor = (backgroundColor: string) => {
+  //   anime({
+  //     targets: divRef.current,
+  //     backgroundColor: backgroundColor,
+  //     duration: 1000,
+  //     easing: 'easeInOutQuad',
+  //     update: (anim) => background.current.setColor(anim.animations[0].currentValue as string),
+  //   });
+  // };
 
-  const animateAllTextsColor = (toColor: string) => {
-    anime({
-      targets: ['#Developer', "#Full-Stack", "#Introduction-Paragraph", 
-        "#navbar-Jeric", "#navbar-sections", 
-        "#work-section-PROJECTS", "#Project-Name", ".Project-Description", // The svgs color in the work section change by state called "svgsColor" in the first lines of code
-        "#Introduction-HELLO", "#Introduction-JERIC", ".Introduction-p",
-        "#Contact-LET", "#Contact-CONNECT", "#Contact-INTERESTED",
-      ],
-      color: toColor,
-      duration: 1000, // Duration of the animation
-      easing: 'easeInOutQuad', // Smooth easing
-    });
-    setBottomLineGrowColor(bottomLineGrowColor = toColor);
-    setSvgsColor(sgvsColor = toColor);
-  }
+  // Fixed color function
+  // const animateBackgroundColor = () => {
+  //   background.current.setColor("#2C2C2C");
+  // };
+
+  // Original animation function
+  // const animateAllTextsColor = (toColor: string) => {
+  //   anime({
+  //     targets: ['#Developer', "#Full-Stack", "#Introduction-Paragraph", 
+  //       "#navbar-Jeric", "#navbar-sections", 
+  //       "#work-section-PROJECTS", "#Project-Name", ".Project-Description",
+  //       "#Introduction-HELLO", "#Introduction-JERIC", ".Introduction-p",
+  //       "#Contact-LET", "#Contact-CONNECT", "#Contact-INTERESTED",
+  //     ],
+  //     color: toColor,
+  //     duration: 1000,
+  //     easing: 'easeInOutQuad',
+  //   });
+  //   setBottomLineGrowColor(bottomLineGrowColor = toColor);
+  //   setSvgsColor(sgvsColor = toColor);
+  // }
+
+  // Fixed color function
+  // const animateAllTextsColor = () => {
+  //   const elements = document.querySelectorAll('#Developer, #Full-Stack, #Introduction-Paragraph, #navbar-Jeric, #navbar-sections, #work-section-PROJECTS, #Project-Name, .Project-Description, #Introduction-HELLO, #Introduction-JERIC, .Introduction-p, #Contact-LET, #Contact-CONNECT, #Contact-INTERESTED');
+  //   elements.forEach(element => {
+  //     if (element instanceof HTMLElement) {
+  //       element.style.color = "#FFFFFF";
+  //     }
+  //   });
+  // }
 
   return (
     <>
-      <Navbar bottomLineGrowColor={bottomLineGrowColor} />
-      <div ref={divRef} className="lg:px-72" style={{
-        backgroundColor: background.current.color, // Dynamic background color
-        transition: 'background-color 1s ease', // Fallback transition
+      {/* Removed bottomLineGrowColor prop as color is now fixed */}
+      <Navbar />
+      <div ref={divRef} className="lg:px-60" style={{
+        background: `linear-gradient(to right, #1A1A1A, #2C2C2C, #000000)`,
+        // Original transition style
+        // backgroundColor: background.current.color,
+        // transition: 'background-color 1s ease',
       }}>
-        <Introduction changeBackground={() => animateBackgroundColor("#2C2C2C")} animateAllTextsColor={() => animateAllTextsColor("#FFFFFF")}/>
-        <Work svgsColor={sgvsColor} changeBackground={() => animateBackgroundColor("#f5f5f5")} animateAllTextsColor={() => animateAllTextsColor("#2C2C2C")}/>
-        <About changeBackground={() => animateBackgroundColor("#2C2C2C")} animateAllTextsColor={() => animateAllTextsColor("#FFFFFF")}/> 
-        <Contact changeBackground={() => animateBackgroundColor("#f5f5f5")} animateAllTextsColor={() => animateAllTextsColor("#2C2C2C")}/> 
+        {/* Removed color-related props as they are now fixed */}
+        <Introduction />
+        {/* Removed svgsColor and color-related props */}
+        <Work />
+        <About /> 
+        <Contact /> 
       </div>
       <Footer />
     </>
