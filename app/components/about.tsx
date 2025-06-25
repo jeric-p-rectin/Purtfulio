@@ -83,16 +83,16 @@ export default function About() {
       <div ref={aboutTop} className="self-center size-0 invisible">tae1</div>
       <div className="flex flex-col pt-20" ref={divRef}>
         <div ref={h1Ref}>
-          <h1 id="Introduction-HELLO" className="font-abril text-5xl text-primary">HELLO.</h1>
-          <h1 id="Introduction-JERIC" className="font-abril text-5xl text-primary">I AM JERIC</h1>
+          <h1 id="Introduction-HELLO" className="font-abril text-3xl sm:text-5xl text-primary">HELLO.</h1>
+          <h1 id="Introduction-JERIC" className="font-abril text-3xl sm:text-5xl text-primary">I AM JERIC</h1>
         </div>
         <h2 id="Introduction-JERIC-RECTIN" className="font-abril text-quinary text-2xl">JERIC RECTIN</h2>
         <div>
-          <p className="Introduction-p font-lato text-base my-8 text-primary">
+          <p className="Introduction-p font-lato text-sm sm:text-base my-8 text-primary">
             I USE MY PASSION AND SKILLS TO CREATE AND DEVELOP APPS THAT CAN MAKE DIFFERENCE AND BRING IDEAS TO LIFE.
           </p>
           <div ref={aboutMiddle} className="self-center size-0 invisible">tae</div>
-          <p className="Introduction-p text-base mt-8 text-primary">
+          <p className="Introduction-p text-sm sm:text-base mt-8 text-primary">
             I AM CONSTANTLY LEARNING AND EXPLORING NEW TECHNOLOGIES TO ENHANCE MY SKILLS
             AND STAY AHEAD IN THE EVER-EVOLVING TECH LANDSCAPE.
             WHETHER IT&apos;S DESIGNING A SLEEK WEBSITE OR DEVELOPING FUNCTIONAL WEB APPLICATION SOLUTIONS,

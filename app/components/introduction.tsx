@@ -96,7 +96,7 @@ export default function Introduction() {
                             <h1 id="Full-Stack" className="font-abril text-3xl text-primary">FULL-STACK</h1>
                             <h1 id="Developer" className="font-abril text-3xl text-primary">DEVELOPER</h1>
                         </div>
-                    <div className="bg-transparent w-[105px] h-[100px] sm:w-[135px] sm:h-[100px]" style={{ width: window.innerWidth <= 305 ? '80px' : undefined }}>
+                    <div className="bg-transparent w-[105px] h-[100px] sm:w-[135px] sm:h-[100px]">
                         <ChessKing />
                     </div>
                     </div>
