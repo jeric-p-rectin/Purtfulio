@@ -22,9 +22,9 @@ export default function Introduction() {
             delay: anime.stagger(100),
         });
 
-        // Animate "FULL-STACK" and "DEVELOPER"
+        // Animate "Innovator" and "DEVELOPER"
         anime({
-            targets: ["#Full-Stack", "#Developer"],
+            targets: ["#Innovator", "#Developer"],
             translateY: [50, 0],
             scale: [0.8, 1],
             opacity: [0, 1],
@@ -32,6 +32,13 @@ export default function Introduction() {
             duration: 1000,
             delay: 900,
         });
+
+        anime({
+            targets: ["#Innovator", "#Developer"], 
+            textShadow: '0 0 5px rgba(255,255,255,0.6)',
+            easing: 'easeOutQuad',
+            duration: 1200,
+        })
 
         // Animate paragraph
         anime({
@@ -66,7 +73,7 @@ export default function Introduction() {
                     <div className="flex flex-row gap-0">
                         <div>
                             <h2 id="Creative" className="font-abril text-quinary text-2xl text-left">CREATIVE</h2>
-                            <h1 id="Full-Stack" className="font-abril text-5xl text-primary">FULL-STACK</h1>
+                            <h1 id="Innovator" className="font-abril text-5xl text-gray-300">INNOVATOR</h1>
                             <h1 id="Developer" className="font-abril text-5xl text-primary">DEVELOPER</h1>
                         </div>
                         <div className="bg-transparent w-[135px] h-[100px]">
@@ -74,7 +81,7 @@ export default function Introduction() {
                         </div>
                     </div>
                     <p id="Introduction-Paragraph" className="font-lato text-base text-primary my-8 ml-1">
-                        I AM A DEVELOPER FROM PHILIPPINES. I HAVE MORE THAN TWO YEARS OF EXPERIENCE IN DEVELOPING VARIOUS TYPES OF WEB APPLICATIONS. I LOVE NATURE, PIZZA AND ART.
+                        I AM AN INNOVATOR AND DEVELOPER FROM THE PHILIPPINES. I BUILD DIGITAL SOLUTIONS — FROM WEBSITES TO MOBILE APPS — TO EMPOWER COMMUNITIES AND LOCAL BUSINESSES. I’M DRIVEN BY CREATIVITY, PURPOSE, AND A LOVE FOR TURNING IDEAS INTO REALITY.
                     </p>
                     <a
                         id="Contact-Me"
@@ -93,7 +100,7 @@ export default function Introduction() {
                     <div className="flex flex-row items-center gap-0">
                         <div>
                             <h2 id="Creative" className="font-abril text-quinary text-2xl text-left">CREATIVE</h2>
-                            <h1 id="Full-Stack" className="font-abril text-3xl text-primary">FULL-STACK</h1>
+                            <h1 id="Innovator" className="font-abril text-3xl text-gray-300">INNOVATOR</h1>
                             <h1 id="Developer" className="font-abril text-3xl text-primary">DEVELOPER</h1>
                         </div>
                     <div className="bg-transparent w-[105px] h-[100px] sm:w-[135px] sm:h-[100px]">
@@ -101,7 +108,7 @@ export default function Introduction() {
                     </div>
                     </div>
                     <p id="Introduction-Paragraph" className="font-lato text-sm text-primary my-8 ml-1">
-                        I AM A DEVELOPER FROM PHILIPPINES. I HAVE MORE THAN TWO YEARS OF EXPERIENCE IN DEVELOPING VARIOUS TYPES OF WEB APPLICATIONS. I LOVE NATURE, PIZZA AND ART.
+                        I AM AN INNOVATOR AND DEVELOPER FROM THE PHILIPPINES. I BUILD DIGITAL SOLUTIONS — FROM WEBSITES TO MOBILE APPS — TO EMPOWER COMMUNITIES AND LOCAL BUSINESSES. I’M DRIVEN BY CREATIVITY, PURPOSE, AND A LOVE FOR TURNING IDEAS INTO REALITY.
                     </p>
                     <a
                         id="Contact-Me"

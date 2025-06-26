@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'; // ayusin mo ang format pero wag ka mag iba
-import ThemeToggle from './theme-toggle';
+// import ThemeToggle from './theme-toggle';
 import { useMediaQuery } from "react-responsive";
 import anime from 'animejs';
 
@@ -64,7 +64,7 @@ export default function Navbar() {
                     >
                         <h1 id="navbar-Jeric" className={`font-abril text-2xl text-primary`}>JERIC</h1>
                         <ul className="flex flex-row items-center gap-1 sm:gap-2">
-                            <li><ThemeToggle /></li>
+                            {/* <li><ThemeToggle /></li> */}
                             {sections.map((section) => (
                                 <li id="navbar-sections" key={section}>
                                     <a
@@ -97,7 +97,7 @@ export default function Navbar() {
                     >
                         <h1 id="navbar-Jeric" className={`font-abril text-lg text-primary`}>JERIC</h1>
                         <ul className="flex flex-row items-center gap-1 sm:gap-2">
-                            <li><ThemeToggle /></li>
+                            {/* <li><ThemeToggle /></li> */}
                             {sections.map((section) => (
                                 <li id="navbar-sections" key={section}>
                                     <a
