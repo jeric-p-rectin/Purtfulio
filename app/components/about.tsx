@@ -20,12 +20,23 @@ export default function About() {
         duration: 600,
       })
       .add({
+        targets: "#Introduction-HELLO", 
+        textShadow: '0 0 5px rgba(255,255,255,0.6)',
+        easing: 'easeOutQuad',
+        duration: 200,
+      })
+      .add({
         targets: "#Introduction-JERIC",
         translateY: [-30, 0],
         opacity: [0, 1],
         duration: 600,
       }, "-=400")
-      
+      .add({
+        targets: "#Introduction-JERIC", 
+        textShadow: '0 0 5px rgba(255,255,255,0.6)',
+        easing: 'easeOutQuad',
+        duration: 200,
+      })
       .add({
         targets: "#Introduction-JERIC-RECTIN",
         translateY: [-30, 0],

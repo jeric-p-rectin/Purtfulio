@@ -25,11 +25,23 @@ export default function Contact() {
         duration: 500,
       })
       .add({
+        targets: "#Contact-LET", 
+        textShadow: '0 0 5px rgba(255,255,255,0.6)',
+        easing: 'easeOutQuad',
+        duration: 200,
+      })
+      .add({
         targets: "#Contact-CONNECT",
         translateY: [-30, 0],
         opacity: [0, 1],
         duration: 500,
       }, "-=300")
+      .add({
+        targets: "#Contact-CONNECT", 
+        textShadow: '0 0 5px rgba(255,255,255,0.6)',
+        easing: 'easeOutQuad',
+        duration: 200,
+      })
       .add({
         targets: "#Contact-INTERESTED",
         translateY: [-30, 0],
