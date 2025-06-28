@@ -9,10 +9,8 @@ export default function Navbar() {
     const navbarRef = useRef(null);
 
     const bottomLineGrowIfGlobalColorIsWhite = `text-primary text-sm w-fit after:block after:content-[''] after:h-[1px] after:bg-black after:w-full after:scale-x-0 hover:after:scale-x-100 hover:after:bg-white after:transition after:duration-300 after:origin-center`;
-    const bottomLineGrowIfGlobalColorIsBlack = `text-secondary text-sm w-fit after:block after:content-[''] after:h-[1px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center`;
 
     const desktopBottomLineGrowIfGlobalColorIsWhite = `text-primary w-fit after:block after:content-[''] after:h-[1px] after:bg-black after:w-full after:scale-x-0 hover:after:scale-x-100 hover:after:bg-white after:transition after:duration-300 after:origin-center`;
-    const desktopBottomLineGrowIfGlobalColorIsBlack = `text-secondary w-fit after:block after:content-[''] after:h-[1px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center`;
 
     const [activeSection, setActiveSection] = useState('');
     const sections = ['work-section', 'about-section', 'contact-section']; // IDs of your sections

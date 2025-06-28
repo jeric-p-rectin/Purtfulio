@@ -4,50 +4,99 @@ import BlackArrow from "./black-arrow";
 import anime from "animejs";
 
 interface propsValue {
-    title: string,
-    description: string,
-    imagePath: string,
-    tags: Array<string>,
-    linkPath: string,
-    svgColor?: string,
+  title: string;
+  description: string;
+  imagePaths: string[];
+  tags: Array<string>;
+  linkPath: string;
 }
 
-export default function Component({title, imagePath, description, tags, linkPath, svgColor}: propsValue) {
-    const router = useRouter();
-    const [state,] = useState(tags);
-    // const [arrowStroke, setArrowStroke] = useState<string>(svgColor as string);
+export default function Component({
+  title,
+  imagePaths,
+  description,
+  tags,
+  linkPath,
+}: propsValue) {
+  const router = useRouter();
+  const [state] = useState(tags);
+  const [arrowStroke, setArrowStroke] = useState<string>("#FFFFFF");
 
-    const ArrowId = title.replace(/ /g, "-");
-    const backgroundImage = `url('${imagePath}')`;
+  const ArrowId = title.replace(/ /g, "-");
+  const backgroundImages = imagePaths.map((imagePath) => `url('${imagePath}')`);
 
-    function animateArrow({translateY}: {translateY: number}) {
-        anime({
-            targets: `#${ArrowId}`,
-            translateY: translateY,
-            duration: 300,
-            easing: "easeInOutQuad"
-        })
-        // setArrowStroke("gray");
-    }
+  function animateArrow({ translateY }: { translateY: number }) {
+    anime({
+      targets: `#${ArrowId}`,
+      translateY,
+      duration: 300,
+      easing: "easeInOutQuad",
+    });
+    setArrowStroke("gray");
+  }
 
-    return (
-        <div className="my-4">
-            <div className="group flex flex-row w-fit cursor-pointer" onClick={() => router.push(`${linkPath}`)} onMouseEnter={() => animateArrow({ translateY: -10 })} onMouseLeave={() => {animateArrow({ translateY: 0 })}}>
-                <h2 id="Project-Name" className="group-hover:text-quinary transition font-lato font-medium text-xl text-primary my-2">{title}</h2>
-                <div id={ArrowId} className="relative top-3 h-fit w-fit"><BlackArrow /></div>
-            </div>
-            <div 
-                className="w-full h-96 shadow-md border-secondary rounded-md bg-no-repeat bg-[length:100%_100%]"
-                style={{ backgroundImage: backgroundImage }}
-            >
-            </div>
-            <p className="Project-Description font-lato text-sm text-primary my-2">{description}</p>
-            <div className="grid grid-cols-3 sm:grid-cols-4 my-2">
-                {state.map((tag) => {
-                    return <span key={Math.random()} className="border-2 text-center text-sm my-1 shadow-sm mr-1 bg-fourtuary rounded-full px-2 py-1">{tag}</span>
-                })}
-            </div>
-
+  return (
+    <div className="my-8 transition-all duration-300">
+      {/* Title & Arrow */}
+      <div
+        className="group flex items-center w-fit cursor-pointer gap-2"
+        onClick={() => router.push(`${linkPath}`)}
+        onMouseEnter={() => animateArrow({ translateY: -8 })}
+        onMouseLeave={() => animateArrow({ translateY: 0 })}
+      >
+        <h2 className="group-hover:text-quinary transition-all font-lato font-semibold text-xl text-primary">
+          {title}
+        </h2>
+        <div id={ArrowId} className="relative top-[2px]">
+          <BlackArrow />
         </div>
-    )
+      </div>
+
+      {/* Image Section */}
+      <div className="flex w-full h-52 sm:h-96 rounded-2xl overflow-hidden mt-4 border border-gray-200 shadow-lg">
+        {backgroundImages.map((backgroundImage, index) => {
+          const style = { backgroundImage };
+          const baseClasses =
+            "bg-no-repeat bg-[length:100%_100%] transition-transform duration-300 hover:scale-105";
+
+          if (backgroundImages.length === 2) {
+            return (
+              <div
+                key={index}
+                className={`${baseClasses} ${
+                  index === 0 ? "w-[30%]" : "w-[70%]"
+                }`}
+                style={style}
+              />
+            );
+          }
+
+          return (
+            <div
+              key={index}
+              className={`${baseClasses} w-full`}
+              style={style}
+            />
+          );
+        })}
+      </div>
+
+      {/* Description */}
+      <p className="mt-4 text-primary text-sm sm:text-base leading-relaxed font-lato">
+        {description}
+      </p>
+
+      {/* Tags */}
+      <div className="flex flex-wrap gap-2 mt-3">
+        {state.map((tag, i) => (
+          <span
+            key={i}
+            className="bg-fourtuary text-secondary text-xs sm:text-sm font-medium px-3 py-1 rounded-2xl border border-secondary shadow-sm"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 }

@@ -54,12 +54,12 @@ export default function Component({showProject, slideOutMoreProjects}: Component
             </div>
             <div className="flex flex-col bg-tertiary rounded-b-xl shadow-xl h-full px-8 py-2">
                 <div className="flex flex-row justify-evenly h-72 pb-3">
-                    <div className={`project-1 ${classOfMoreProjects} mr-2 bg-calculator-with-opacity hover:bg-calculator-no-opacity`} 
+                    <div className={`project-1 ${classOfMoreProjects} mr-2 bg-notepud-with-opacity hover:bg-notepud-no-opacity`} 
                     onClick={() => showProject({ projectOrdinalNumber: "1" })}
                     onMouseEnter={() => animateTitle({title: projectTitleRef1.current, onMouseEnterOrLeave: "mouseEnter"})}
                     onMouseLeave={() => animateTitle({title: projectTitleRef1.current, onMouseEnterOrLeave: "mouseLeave"})}
                     >
-                        <h2 ref={projectTitleRef1} className="project-title-1 text-primary font-lato">CALCULATOR</h2>
+                        <h2 ref={projectTitleRef1} className="project-title-1 text-primary font-lato">NOTEPUD</h2>
                     </div>
                     <div className={`project-2 ${classOfMoreProjects} ml-2 bg-dictionary-with-opacity hover:bg-dictionary-no-opacity`} 
                     onClick={() => showProject({ projectOrdinalNumber: "2" })}
@@ -70,12 +70,12 @@ export default function Component({showProject, slideOutMoreProjects}: Component
                     </div>
                 </div>
                 <div className="h-full">
-                    <div className={`project-3 ${classOfMoreProjects} bg-notepud-with-opacity hover:bg-notepud-no-opacity`} 
+                    <div className={`project-3 ${classOfMoreProjects} bg-bulaloi-manager-with-opacity hover:bg-bulaloi-manager-no-opacity`} 
                     onClick={() => showProject({ projectOrdinalNumber: "3" })}
                     onMouseEnter={() => animateTitle({title: projectTitleRef3.current, onMouseEnterOrLeave: "mouseEnter"})}
                     onMouseLeave={() => animateTitle({title: projectTitleRef3.current, onMouseEnterOrLeave: "mouseLeave"})}
                     >
-                        <h2 ref={projectTitleRef3} className="project-title-3 text-primary group-hover: font-lato">NOTEPUD</h2>
+                        <h2 ref={projectTitleRef3} className="project-title-3 text-primary group-hover: font-lato">BULALOI MANAGER</h2>
                     </div>
                 </div>
             </div>

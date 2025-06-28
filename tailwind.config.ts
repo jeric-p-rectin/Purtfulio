@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: { // more-projects section backgrounds
-        'calculator-with-opacity': "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/calculator.jpg')",
-        'calculator-no-opacity': "linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('/calculator.jpg')",
-        'dictionary-with-opacity': "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/bulaloi-dictionary.jpg')",
-        'dictionary-no-opacity': "linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('/bulaloi-dictionary.jpg')",
         'notepud-with-opacity': "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/notepud.jpg')",
         'notepud-no-opacity': "linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('/notepud.jpg')",
+        'dictionary-with-opacity': "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/bulaloi-dictionary.jpg')",
+        'dictionary-no-opacity': "linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('/bulaloi-dictionary.jpg')",
+        'bulaloi-manager-with-opacity': "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/bulaloi-manager.jpg')",
+        'bulaloi-manager-no-opacity': "linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url('/bulaloi-manager.jpg')",
       },
       colors: {
         primary: "#FFFFFF", // White

@@ -129,9 +129,10 @@ export default function Work() {
   function slideOutMoreProjects({ MoreProjects, slideOutAll }: { MoreProjects: string[]; slideOutAll: boolean }) {
     anime({
       targets: MoreProjects,
-      translateX: ['0%', '-100%'],
+      translateX: ['0%', '-20%'],
+      opacity: [1, 0],
       easing: 'easeOutQuad',
-      duration: 1000,
+      duration: 800,
       complete: () => {
         if (slideOutAll) {
           setShowMoreProjects(false);
@@ -158,37 +159,37 @@ export default function Work() {
 
       <div className="flex flex-col" ref={divRef}>
         <Project
-          title="BULALOI APP"
-          imagePath="/bulaloi-app.jpg"
-          description="BULALOI is a web application that allows users to download modded and non-modded paid/free games and apps for free. It serves as an alternative app marketplace similar to the Play Store."
+          title="THRIVEPH"
+          imagePaths={["/thriveph1.jpg", "/thriveph2.jpg", "/thriveph3.jpg"]}
+          description="THRIVEPH is a digital platform that empowers Filipino artisans and small businesses by providing a beautiful, accessible space to showcase their products and grow online."
           tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
-          linkPath="https://github.com/Boboe16/Bulaloi-App-Production/"
+          linkPath="https://thriveph.vercel.app/"
         />
 
         <div ref={workMiddle} className='self-center size-0 invisible'>tae</div>
 
         <Project
-          title="BULALOI MANAGER"
-          imagePath="/bulaloi-manager.jpg"
-          description="BULALOI MANAGER is a desktop application designed to manage the apps and games available in the BULALOI web app. It allows administrators to add, update, and delete applications with ease through a user-friendly interface."
-          tags={['PYTHON', 'PYQT6', 'CSS', 'GIT', 'GITHUB', 'LIBRARIES']}
-          linkPath="https://github.com/Boboe16/Bulaloi-Manager-Production/"
+          title="MARIKENYO"
+          imagePaths={["/marikenyo1.jpg", "/marikenyo2.jpg"]}
+          description="MARIKENYO is a digital gateway to the Marikina Shoe Festival. Celebrating the city’s legacy of world-class shoemaking. Discover local craftsmen, explore unique designs, and experience the rich heritage that makes Marikina the Shoe Capital of the Philippines."
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
+          linkPath="https://marikenyo.vercel.app/"
         />
 
         <div ref={workMiddle2} className='self-center size-0 invisible'>tae</div>
 
         <Project
-          title="PORTFOLIO"
-          imagePath="/portfolio.jpg"
-          description="Welcome to my portfolio web app! This project showcases my skills, projects, and experience in web development, with a sleek and interactive design."
-          tags={['JAVASCRIPT', 'TYPESCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'TAILWIND', 'ANIMEJS', 'THREEJS', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
-          linkPath="http://jeric-portfolio.vercel.app/"
+          title="BULALOI"
+          imagePaths={["/bulaloi-app.jpg"]}
+          description="BULALOI is a web application that allows users to download modded and non-modded paid/free games and apps for free. It serves as an alternative app marketplace similar to the Play Store."
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
+          linkPath="https://github.com/Boboe16/Bulaloi-App-Production/"
         />
 
         <button
           onClick={slideInMoreProjects}
           ref={buttonRef}
-          className="font-lato cursor-pointer text-primary shadow-md border self-center rounded-md w-36 p-2 m-2 bg-tertiary hover:bg-primary hover:text-secondary hover:transition border-black"
+          className="font-lato text-secondary text-center text-base shadow-md border self-center rounded-md w-32 p-2 m-2 bg-fourtuary hover:bg-tertiary hover:text-primary hover:transition border-black"
         >
           SEE MORE
         </button>
@@ -207,11 +208,11 @@ export default function Work() {
       {showFourthProject && (
         <div ref={fourthProject} id="fourth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
-            title="CALCULATOR"
-            description="A simple and efficient calculator web app built with React, designed for basic arithmetic operations with a clean and responsive UI."
-            imagePath="/calculator.jpg"
-            linkPath="https://github.com/Boboe16/Calculator"
-            tags={['JAVASCRIPT', 'HTML', 'CSS', 'REACT', 'BOOTSTRAP', 'NETLIFY', 'GIT', 'GITHUB']}
+            title="NOTEPUD"
+            description="Notepud is a simple and efficient web application for taking notes and managing tasks. It helps users stay organized with an intuitive interface and essential features for productivity."
+            imagePath="/notepud.jpg"
+            linkPath="https://github.com/jeric-p-rectin/React_App-Notes-with-To-dos"
+            tags={['JAVASCRIPT', 'HTML', 'CSS', 'REACT', 'VERCEL', 'GIT', 'GITHUB']}
             slideOutMoreProjects={slideOutMoreProjects}
           />
         </div>
@@ -233,11 +234,11 @@ export default function Work() {
       {showSixthProject && (
         <div ref={sixthProject} id="sixth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
-            title="NOTEPUD"
-            description="Notepud is a simple and efficient web application for taking notes and managing tasks. It helps users stay organized with an intuitive interface and essential features for productivity."
-            imagePath="/notepud.jpg"
-            linkPath="https://github.com/Boboe16/React_App-Notes-with-To-dos"
-            tags={['JAVASCRIPT', 'HTML', 'CSS', 'REACT', 'VERCEL', 'GIT', 'GITHUB']}
+            title="BULALOI MANAGER"
+            description="BULALOI MANAGER is a desktop application designed to manage the apps and games available in the BULALOI web app. It allows administrators to add, update, and delete applications with ease through a user-friendly interface."
+            imagePath="/bulaloi-manager.jpg"
+            linkPath="https://github.com/jeric-p-rectin/Bulaloi-Manager-Production"
+            tags={["PYTHON", "PYQT6", "CSS", "GIT", "GITHUB", "LIBRARIES"]}
             slideOutMoreProjects={slideOutMoreProjects}
           />
         </div>
