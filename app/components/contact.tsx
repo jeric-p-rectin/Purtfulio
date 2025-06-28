@@ -49,6 +49,12 @@ export default function Contact() {
         duration: 500,
       }, "-=300")
       .add({
+        targets: "#Contact-INTERESTED",
+        textShadow: '0 0 5px rgba(255,255,255,0.6)',
+        easing: 'easeOutQuad',
+        duration: 200,
+      }, "-=400")
+      .add({
         targets: ".contact-button",
         translateX: ["-50px", "0px"],
         opacity: [0, 1],
@@ -93,7 +99,7 @@ export default function Contact() {
         <div ref={h1AndH2Ref}>
           <h1 id="Contact-LET" className="font-abril text-3xl sm:text-5xl text-primary">LET&apos;S</h1>
           <h1 id="Contact-CONNECT" className="font-abril text-3xl sm:text-5xl text-primary">CONNECT</h1>
-          <h2 id="Contact-INTERESTED" className="font-abril text-2xl sm:text-3xl mb-4 text-quinary">I AM ALWAYS INTERESTED ABOUT</h2>
+          <h2 id="Contact-INTERESTED" className="font-abril text-2xl sm:text-3xl mb-4 text-gray-300">I AM ALWAYS INTERESTED ABOUT</h2>
         </div>
         <div ref={contactMiddle} className='self-center size-1 invisible'>tae</div>
         <div ref={buttonsRef} className="flex flex-col">

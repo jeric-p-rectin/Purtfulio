@@ -34,7 +34,14 @@ export default function Introduction() {
         });
 
         anime({
-            targets: ["#Innovator", "#Developer"], 
+            targets: ["#Creative"], 
+            textShadow: '0 0 3px rgba(255,255,255,0.4)',
+            easing: 'easeOutQuad',
+            duration: 1200,
+        })
+
+        anime({
+            targets: ["#Creative", "#Innovator", "#Developer"], 
             textShadow: '0 0 5px rgba(255,255,255,0.6)',
             easing: 'easeOutQuad',
             duration: 1200,
@@ -72,7 +79,7 @@ export default function Introduction() {
                 <div className="flex flex-col m-auto">
                     <div className="flex flex-row gap-0">
                         <div>
-                            <h2 id="Creative" className="font-abril text-quinary text-2xl text-left">CREATIVE</h2>
+                            <h2 id="Creative" className="font-abril text-gray-400 text-2xl text-left">CREATIVE</h2>
                             <h1 id="Innovator" className="font-abril text-5xl text-gray-300">INNOVATOR</h1>
                             <h1 id="Developer" className="font-abril text-5xl text-primary">DEVELOPER</h1>
                         </div>
@@ -99,7 +106,7 @@ export default function Introduction() {
                 <div className="flex flex-col m-auto">
                     <div className="flex flex-row items-center gap-0">
                         <div>
-                            <h2 id="Creative" className="font-abril text-quinary text-2xl text-left">CREATIVE</h2>
+                            <h2 id="Creative" className="font-abril text-gray-200 text-2xl text-left">CREATIVE</h2>
                             <h1 id="Innovator" className="font-abril text-3xl text-gray-300">INNOVATOR</h1>
                             <h1 id="Developer" className="font-abril text-3xl text-primary">DEVELOPER</h1>
                         </div>

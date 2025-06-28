@@ -9,7 +9,6 @@ import { useRef } from "react";
 import Particles from './components/particles';
 
 export default function Home() {
-
   const divRef = useRef<any>();
 
   return (
@@ -20,8 +19,8 @@ export default function Home() {
       }}>
         <div className="fixed z-1 top-0 left-0 w-full h-full pointer-events-none">
           <Particles
-            particleColors={['#ffffff', '#ffffff']}
-            particleCount={200}
+            particleColors={['#C0C0C0', '#848884', '#E5E4E2']}
+            particleCount={300}
             particleSpread={10}
             speed={0.1}
             particleBaseSize={100}
