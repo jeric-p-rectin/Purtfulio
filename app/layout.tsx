@@ -26,10 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className="white-scrollbar" lang="en">
       <link rel="icon" href="/mylogo.png" type="image/png" sizes="32x32" />
       <meta property="og:image" content="/mylogo.png" />
-      <body className={`${abrilFatface.variable} ${lato.variable}`}>{children}</body>
+      <body className={`white-scrollbar ${abrilFatface.variable} ${lato.variable}`}>{children}</body>
     </html>
   );
 }

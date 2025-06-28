@@ -6,6 +6,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* White Scrollbar - Clean and Minimal */
+.white-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.white-scrollbar::-webkit-scrollbar-track {
+  background: #1a1a1a; /* dark background */
+}
+
+.white-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* white thumb */
+  border-radius: 10px;
+  border: 2px solid #1a1a1a; /* blends with the background */
+}
+
+/* Firefox support */
+.white-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff #1a1a1a;
+}
+
 /* #introduction-section {
   background-image: url('/wave.svg');
   background-repeat: no-repeat;

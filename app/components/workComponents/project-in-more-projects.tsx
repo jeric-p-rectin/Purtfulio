@@ -28,7 +28,7 @@ export default function Component({title, description, imagePath, linkPath, tags
                     className="w-full h-96 shadow-md border-secondary rounded-md bg-no-repeat bg-[length:100%_100%]"
                     style={{ backgroundImage: backgroundImage }}
                 ></div>
-                <div className="h-20 overflow-auto my-3 lg:my-6 lg:h-fit custom:overflow-visible">
+                <div className="h-20 white-scrollbar overflow-auto my-3 lg:my-6 lg:h-fit custom:overflow-visible">
                     <p className="font-lato text-[#000000] text-[10px] lg:text-sm">
                         {description}
                     </p>
