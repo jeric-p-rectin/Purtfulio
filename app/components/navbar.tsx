@@ -58,8 +58,10 @@ export default function Navbar() {
                         border-b-2 border-[#FFFFFF]
                         mx-3 h-16 px-5 backdrop-blur-sm
                     `}
-                >
-                    <h1 id="navbar-Jeric" className={`font-abril text-2xl text-primary`}>JERIC</h1>
+                >   
+                    <div className='flex flex-row'>
+                        <h1 id="navbar-Jeric" className={`font-abril text-2xl text-primary`}>JERIC</h1>
+                    </div>
                     <ul className="flex flex-row items-center gap-1 sm:gap-2">
                         {/* <li><ThemeToggle /></li> */}
                         {sections.map((section) => (

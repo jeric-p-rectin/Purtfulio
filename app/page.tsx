@@ -19,8 +19,8 @@ export default function Home() {
       }}>
         <div className="fixed z-1 top-0 left-0 w-full h-full pointer-events-none">
           <Particles
-            particleColors={['#C0C0C0', '#848884', '#E5E4E2']}
-            particleCount={300}
+            particleColors={['#C0C0C0', '#A9A9A9', '#D3D3D3']}
+            particleCount={200}
             particleSpread={10}
             speed={0.1}
             particleBaseSize={100}
