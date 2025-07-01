@@ -32,7 +32,8 @@ export default function Component({
       duration: 300,
       easing: "easeInOutQuad",
     });
-    setArrowStroke("gray");
+    if (arrowStroke === "#FFFFFF") setArrowStroke("#8B8B8B");
+    else setArrowStroke("#FFFFFF")
   }
 
   return (
@@ -42,13 +43,15 @@ export default function Component({
         className="group flex items-center w-fit cursor-pointer gap-2"
         onClick={() => router.push(`${linkPath}`)}
         onMouseEnter={() => animateArrow({ translateY: -8 })}
-        onMouseLeave={() => animateArrow({ translateY: 0 })}
+        onMouseLeave={() => {
+          animateArrow({ translateY: 0 })
+        }}
       >
         <h2 className="group-hover:text-quinary transition-all font-lato font-semibold text-xl text-primary">
           {title}
         </h2>
-        <div id={ArrowId} className="relative top-[2px]">
-          <BlackArrow />
+        <div id={ArrowId} className="relative bottom-[4px]">
+          <BlackArrow arrowStroke={arrowStroke as string} />
         </div>
       </div>
 

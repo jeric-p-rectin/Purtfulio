@@ -162,7 +162,7 @@ export default function Work() {
           title="THRIVEPH"
           imagePaths={["/thriveph1.jpg", "/thriveph2.jpg", "/thriveph3.jpg"]}
           description="THRIVEPH is a digital platform that empowers Filipino artisans and small businesses by providing a beautiful, accessible space to showcase their products and grow online."
-          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'NEXTAUTH', 'REACT', 'TAILWIND', 'ANIMEJS', 'MONGODB',  'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
           linkPath="https://thriveph.vercel.app/"
         />
 
@@ -172,7 +172,7 @@ export default function Work() {
           title="MARIKENYO"
           imagePaths={["/marikenyo1.jpg", "/marikenyo2.jpg"]}
           description="MARIKENYO is a digital gateway to the Marikina Shoe Festival. Celebrating the city’s legacy of world-class shoemaking. Discover local craftsmen, explore unique designs, and experience the rich heritage that makes Marikina the Shoe Capital of the Philippines."
-          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'TAILWIND', 'THREEJS', 'ANIMEJS', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
           linkPath="https://marikenyo.vercel.app/"
         />
 

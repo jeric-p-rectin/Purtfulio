@@ -102,7 +102,7 @@ export default function About() {
       <div className="flex flex-col pt-20" ref={divRef}>
         <div ref={h1Ref}>
           <h1 id="Introduction-HELLO" className="font-abril text-3xl sm:text-5xl text-primary">HELLO.</h1>
-          <h1 id="Introduction-JERIC" className="font-abril text-3xl sm:text-5xl text-primary">I AM JERIC</h1>
+          <h1 id="Introduction-JERIC" className="font-abril text-3xl sm:text-5xl text-gray-100">I AM JERIC</h1>
         </div>
         <h2 id="Introduction-JERIC-RECTIN" className="font-abril text-gray-300 text-2xl">JERIC RECTIN</h2>
         <div>
