@@ -17,9 +17,9 @@ export default function Home() {
       <div ref={divRef} className="lg:px-60" style={{
         background: `linear-gradient(to right, #1A1A1A, #2C2C2C, #000000)`,
       }}>
-        <div className="fixed z-1 top-0 left-0 w-full h-full pointer-events-none">
+        <div className="fixed z-0 top-0 left-0 w-full h-full pointer-events-none">
           <Particles
-            particleColors={['#C0C0C0', '#A9A9A9', '#D3D3D3']}
+            particleColors={['#D3D3D3']}
             particleCount={200}
             particleSpread={10}
             speed={0.1}
@@ -29,12 +29,14 @@ export default function Home() {
             disableRotation={false}
           />
         </div>    
-        <Introduction />
-        <Work />
-        <About /> 
-        <Contact /> 
+        <div className="relative z-10">
+          <Introduction />
+          <Work />
+          <About /> 
+          <Contact /> 
+          <Footer />
+        </div>
       </div>
-      <Footer />
     </>
   );
 }

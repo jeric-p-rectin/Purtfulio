@@ -52,7 +52,7 @@ export default function Navbar() {
         <div
             ref={navbarRef}
             id="Navbar"
-            className={`fixed top-0 right-0 left-0 z-10 flex flex-row justify-between items-center border-b-2 border-[#FFFFFF] mx-3 h-16 px-5 backdrop-blur-sm`}
+            className={`fixed top-0 right-0 left-0 z-20 flex flex-row justify-between items-center border-b-2 border-[#FFFFFF] mx-3 h-16 px-5 backdrop-blur-sm`}
         >
             <div className="flex flex-row">
                 <h1 id="navbar-Jeric" className="font-abril text-lg sm:text-2xl text-primary">JERIC</h1>
