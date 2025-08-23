@@ -6,14 +6,12 @@ import FacebookLogo from './facebook-logo';
 import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from "react-responsive";
 
-export default function Introduction() {
+export default function Introduction({ onReady }: { onReady?: () => void }) {
     const introductionBottom = useRef<any>(null);
     const introductionTop = useRef<any>(null);
     const isDesktop = useMediaQuery({ query: '(min-width: 640px)' });
-    const [hasMounted, setHasMounted] = useState(false);
 
     useEffect(() => {
-        setHasMounted(true);
 
         // Animate "CREATIVE"
         anime({
@@ -83,9 +81,10 @@ export default function Introduction() {
             duration: 1000,
             delay: anime.stagger(200, { start: 1800 }),
         });
-    }, [hasMounted]);
 
-    if (hasMounted) {
+        onReady?.()
+    }, []);
+
         return (
             <>
                 {isDesktop ? (
@@ -213,5 +212,4 @@ export default function Introduction() {
                 )}
             </>
         );
-    }
 }

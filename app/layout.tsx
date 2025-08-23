@@ -16,8 +16,55 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Jeric's Portfolio",
-  description: "A Web Portfolio",
+  metadataBase: new URL('https://jericrectin.com'),
+  title: {
+    default: "Jeric's Portfolio — Full-stack Web Developer",
+    template: "%s | Jeric's Portfolio",
+  },
+  description: "Jeric is a full-stack web developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
+  keywords: [
+    "Jeric",
+    "portfolio",
+    "web developer",
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Three.js",
+    "full-stack",
+    "Filipino developer"
+  ],
+  authors: [{ name: "Jeric" }],
+  openGraph: {
+    title: "Jeric's Portfolio",
+    description: "Jeric is a full-stack web developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
+    url: "https://jericrectin.com",
+    siteName: "Jeric's Portfolio",
+    images: [
+      {
+        url: "/portfolio.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Jeric's Portfolio preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jeric's Portfolio",
+    description: "Jeric is a full-stack web developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
+    images: ["/portfolio.jpg"],
+  },
+  icons: {
+    icon: "/mylogo.png",
+    shortcut: "/mylogo.png",
+    apple: "/mylogo.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -25,10 +72,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jeric",
+    "url": "https://jericrectin.com",
+    "sameAs": [
+      "https://www.facebook.com/yourprofile",
+      "https://twitter.com/yourprofile",
+      "https://www.linkedin.com/in/yourprofile",
+      "https://github.com/yourprofile",
+      "https://www.instagram.com/yourprofile"
+    ],
+    "jobTitle": "Full-stack Web Developer",
+    "description": "Jeric is a full-stack web developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth."
+  };
+
   return (
     <html className="white-scrollbar" lang="en">
-      <link rel="icon" href="/mylogo.png" type="image/png" sizes="32x32" />
-      <meta property="og:image" content="/mylogo.png" />
+      <head>
+        {/* Facebook App ID (replace YOUR_FB_APP_ID) */}
+        <meta property="fb:app_id" content="YOUR_FB_APP_ID" />
+        {/* JSON-LD structured data for social profiles */}
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`white-scrollbar ${abrilFatface.variable} ${lato.variable}`}>{children}</body>
     </html>
   );

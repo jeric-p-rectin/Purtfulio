@@ -5,11 +5,12 @@ import Introduction from "./components/introduction";
 import Work from "./components/work";
 import About from "./components/about";
 import Contact from "./components/contact";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Particles from './components/particles';
 
 export default function Home() {
   const divRef = useRef<any>();
+  const [showSections, setShowSections] = useState(false);
 
   return (
     <>
@@ -30,13 +31,17 @@ export default function Home() {
           />
         </div>    
         <div className="relative z-10">
-          <Introduction />
-          <Work />
-          <About /> 
-          <Contact /> 
-          <Footer />
+          <Introduction onReady={() => setShowSections(true)} />
+          {showSections && (
+            <>
+              <Work />
+              <About />
+              <Contact />
+            </>
+          )}
         </div>
       </div>
+      {showSections && <Footer />}
     </>
   );
 }
