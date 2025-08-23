@@ -18,10 +18,10 @@ const lato = Lato({
 export const metadata: Metadata = {
   metadataBase: new URL('https://jericrectin.com'),
   title: {
-    default: "Jeric's Portfolio — Full-stack Web Developer",
+    default: "Jeric's Portfolio — Full-stack Developer",
     template: "%s | Jeric's Portfolio",
   },
-  description: "Jeric is a full-stack web developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
+  description: "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
   keywords: [
     "Jeric",
     "portfolio",
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Jeric" }],
   openGraph: {
     title: "Jeric's Portfolio",
-    description: "Jeric is a full-stack web developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
+    description: "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
     url: "https://jericrectin.com",
     siteName: "Jeric's Portfolio",
     images: [
       {
-        url: "/portfolio.jpg",
+        url: "/mylogo.png",
         width: 1200,
         height: 630,
         alt: "Jeric's Portfolio preview",
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Jeric's Portfolio",
-    description: "Jeric is a full-stack web developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
-    images: ["/portfolio.jpg"],
+    description: "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
+    images: ["/mylogo.png"],
   },
   icons: {
     icon: "/mylogo.png",
@@ -85,7 +85,7 @@ export default function RootLayout({
       "https://www.instagram.com/yourprofile"
     ],
     "jobTitle": "Full-stack Web Developer",
-    "description": "Jeric is a full-stack web developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth."
+    "description": "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth."
   };
 
   return (
