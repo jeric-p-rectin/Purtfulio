@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Jeric's Portfolio",
     images: [
       {
-        url: "/mylogo.png",
+        url: "/portfolio.jpg",
         width: 1200,
         height: 630,
         alt: "Jeric's Portfolio preview",
@@ -54,12 +54,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Jeric's Portfolio",
     description: "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
-    images: ["/mylogo.png"],
+    images: ["/portfolio.jpg"],
   },
   icons: {
-    icon: "/mylogo.png",
-    shortcut: "/mylogo.png",
-    apple: "/mylogo.png",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   robots: {
     index: true,
@@ -78,10 +78,10 @@ export default function RootLayout({
     "name": "Jeric",
     "url": "https://jericrectin.com",
     "sameAs": [
-      "https://www.facebook.com/yourprofile",
+      "https://www.facebook.com/share/18tKmPifzv/",
       "https://twitter.com/yourprofile",
-      "https://www.linkedin.com/in/yourprofile",
-      "https://github.com/yourprofile",
+      "https://www.linkedin.com/in/jeric-p-rectin",
+      "https://github.com/jeric-p-rectin",
       "https://www.instagram.com/yourprofile"
     ],
     "jobTitle": "Full-stack Web Developer",
