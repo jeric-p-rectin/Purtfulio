@@ -41,10 +41,16 @@ export const metadata: Metadata = {
     siteName: "Jeric's Portfolio",
     images: [
       {
-        url: "/poster.jpg",
+        url: "/poster.jpg", // big preview
         width: 1200,
         height: 630,
         alt: "Jeric's Portfolio preview",
+      },
+      {
+        url: "/logo.png", // small fallback
+        width: 512,
+        height: 512,
+        alt: "Jeric's Portfolio logo",
       },
     ],
     locale: "en_US",
