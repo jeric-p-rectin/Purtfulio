@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Jeric's Portfolio",
     images: [
       {
-        url: "/poster.jpg", // big preview
+        url: "/logo.png", // big preview
         width: 1200,
         height: 630,
         alt: "Jeric's Portfolio preview",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Jeric's Portfolio",
     description: "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
-    images: ["/poster.jpg"],
+    images: ["/logo.png"],
   },
   icons: {
     icon: "/logo.png",
