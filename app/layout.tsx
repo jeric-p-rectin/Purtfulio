@@ -16,46 +16,6 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jericrectin.com'),
-  title: {
-    default: "Jeric's Portfolio — Full-stack Developer",
-    template: "%s | Jeric's Portfolio",
-  },
-  description: "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
-  keywords: [
-    "Jeric",
-    "portfolio",
-    "web developer",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Three.js",
-    "full-stack",
-    "Filipino developer"
-  ],
-  authors: [{ name: "Jeric" }],
-  openGraph: {
-    title: "Jeric's Portfolio",
-    description: "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
-    url: "https://jericrectin.com",
-    siteName: "Jeric's Portfolio",
-    images: [
-      {
-        url: "/logo.png", // small fallback
-        width: 300,
-        height: 300,
-        alt: "Jeric's Portfolio logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Jeric's Portfolio",
-    description: "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
-    images: ["/logo.png"],
-  },
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",

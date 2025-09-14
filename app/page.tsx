@@ -1,47 +1,43 @@
 'use client'
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
-import Introduction from "./components/introduction";
-import Work from "./components/work";
-import About from "./components/about";
-import Contact from "./components/contact";
-import { useRef, useState } from "react";
-import Particles from './components/particles';
+import MainComponent from "./components/main-component";
+import { NextSeo } from "next-seo";
 
-export default function Home() {
-  const divRef = useRef<any>();
-  const [showSections, setShowSections] = useState(false);
-
+export default function Portfolio() {
   return (
     <>
-      <Navbar />
-      <div ref={divRef} className="lg:px-60" style={{
-        background: `linear-gradient(to right, #1A1A1A, #2C2C2C, #000000)`,
-      }}>
-        <div className="fixed z-0 top-0 left-0 w-full h-full pointer-events-none">
-          <Particles
-            particleColors={['#D3D3D3']}
-            particleCount={200}
-            particleSpread={10}
-            speed={0.1}
-            particleBaseSize={100}
-            moveParticlesOnHover={false}
-            alphaParticles={false}
-            disableRotation={false}
-          />
-        </div>    
-        <div className="relative z-10">
-          <Introduction onReady={() => setShowSections(true)} />
-          {showSections && (
-            <>
-              <Work />
-              <About />
-              <Contact />
-            </>
-          )}
-        </div>
-      </div>
-      {showSections && <Footer />}
+      <NextSeo
+        title="Jeric's Portfolio — Full-stack Developer"
+        description="Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth."
+        canonical="https://jericrectin.com"
+        openGraph={{
+          url: "https://jericrectin.com",
+          title: "Jeric's Portfolio",
+          description:
+            "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.",
+          site_name: "Jeric's Portfolio",
+          images: [
+            {
+              url: "/logo.png",
+              width: 300,
+              height: 300,
+              alt: "Jeric's Portfolio logo",
+              type: "image/png",
+            },
+          ],
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "Jeric, portfolio, web developer, Next.js, React, Tailwind CSS, Three.js, full-stack, Filipino developer",
+          },
+          {
+            name: "author",
+            content: "Jeric",
+          },
+        ]}
+      />
+      <MainComponent />
     </>
   );
 }
