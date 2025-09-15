@@ -39,10 +39,8 @@ export default function RootLayout({
     "url": "https://jericrectin.com",
     "sameAs": [
       "https://www.facebook.com/share/18tKmPifzv/",
-      "https://twitter.com/yourprofile",
       "https://www.linkedin.com/in/jeric-p-rectin",
       "https://github.com/jeric-p-rectin",
-      "https://www.instagram.com/yourprofile"
     ],
     "jobTitle": "Full-stack Web Developer",
     "description": "Jeric is a full-stack developer who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth."
