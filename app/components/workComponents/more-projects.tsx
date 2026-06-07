@@ -59,7 +59,7 @@ export default function Component({ showProject, slideOutMoreProjects }: Compone
             onMouseEnter={() => animateTitle({ title: projectTitleRef1.current, onMouseEnterOrLeave: "mouseEnter" })}
             onMouseLeave={() => animateTitle({ title: projectTitleRef1.current, onMouseEnterOrLeave: "mouseLeave" })}
           >
-            <h2 ref={projectTitleRef1} className="text-primary font-lato text-xl font-semibold transition-opacity duration-500">NOTEPUD</h2>
+            <h2 ref={projectTitleRef1} className="text-primary font-lato text-xl font-semibold transition-opacity duration-500">BULALOI MANAGER</h2>
           </div>
 
           <div
@@ -79,7 +79,7 @@ export default function Component({ showProject, slideOutMoreProjects }: Compone
             onMouseEnter={() => animateTitle({ title: projectTitleRef3.current, onMouseEnterOrLeave: "mouseEnter" })}
             onMouseLeave={() => animateTitle({ title: projectTitleRef3.current, onMouseEnterOrLeave: "mouseLeave" })}
           >
-            <h2 ref={projectTitleRef3} className="text-primary font-lato text-xl font-semibold transition-opacity duration-500">BULALOI MANAGER</h2>
+            <h2 ref={projectTitleRef3} className="text-primary font-lato text-xl font-semibold transition-opacity duration-500">BULALOI APP</h2>
           </div>
         </div>
       </div>

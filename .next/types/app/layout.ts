@@ -1,4 +1,4 @@
-// File: C:\Users\richill rectin\Documents\doc\Purtfulio\app\layout.tsx
+// File: C:\Users\richill rectin\Documents\doc\Original-Purtfulio\Purtfulio\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

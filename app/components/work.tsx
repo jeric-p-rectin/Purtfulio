@@ -159,31 +159,31 @@ export default function Work() {
 
       <div className="flex flex-col" ref={divRef}>
         <Project
-          title="THRIVEPH"
-          imagePaths={["/thriveph1.jpg", "/thriveph2.jpg", "/thriveph3.jpg"]}
-          description="THRIVEPH is a digital platform that empowers Filipino artisans and small businesses by providing a beautiful, accessible space to showcase their products and grow online."
-          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'NEXTAUTH', 'REACT', 'TAILWIND', 'ANIMEJS', 'MONGODB',  'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
-          linkPath="https://thriveph.vercel.app/"
+          title="GreenPath"
+          imagePaths={["/GreenPath.jpg"]}
+          description="GreenPath is a comprehensive carbon emission tracker mobile app and web showcase designed to help users measure and reduce their environmental impact. Built using Flutter, Firebase, and Supabase, the platform features smart activity logging, AI-powered insights, and GPS auto-tracking for daily transportation. The experience is fully gamified, motivating users to adopt sustainable habits by earning XP, collecting badges, and maintaining streaks through daily eco-missions."
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'TAILWIND', 'ANIMEJS', 'FLUTTER', 'FIREBASE', 'LIBRARIES']}
+          linkPath="https://getgreenpath.vercel.app/"
         />
 
         <div ref={workMiddle} className='self-center size-0 invisible'>tae</div>
 
         <Project
-          title="MARIKENYO"
-          imagePaths={["/marikenyo1.jpg", "/marikenyo2.jpg"]}
-          description="MARIKENYO is a digital gateway to the Marikina Shoe Festival. Celebrating the city’s legacy of world-class shoemaking. Discover local craftsmen, explore unique designs, and experience the rich heritage that makes Marikina the Shoe Capital of the Philippines."
-          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'TAILWIND', 'THREEJS', 'ANIMEJS', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
-          linkPath="https://marikenyo.vercel.app/"
+          title="MED-Alert"
+          imagePaths={['/MED-alert.jpg']}
+          description="MED-Alert (Medical Electronic Database with Alert System for School Clinics) is a centralized healthcare management platform designed to streamline clinic operations and enhance patient care. It provides secure patient record management, comprehensive data analytics, and real-time disease outbreak alerts for proactive health monitoring. By offering tailored, intuitive dashboards for administrators, health workers, and patients, the system ensures an efficient and organized approach to campus healthcare."
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'NEXTAUTH', 'REACT', 'TAILWIND', 'ANIMEJS', 'MYSQL', 'LIBRARIES']}
+          linkPath="https://www.medalertportal.com/"
         />
 
         <div ref={workMiddle2} className='self-center size-0 invisible'>tae</div>
 
         <Project
-          title="BULALOI"
-          imagePaths={["/bulaloi-app.jpg"]}
-          description="BULALOI is a web application that allows users to download modded and non-modded paid/free games and apps for free. It serves as an alternative app marketplace similar to the Play Store."
-          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
-          linkPath="https://github.com/Boboe16/Bulaloi-App-Production/"
+          title="THRIVEPH"
+          imagePaths={["/thriveph1.jpg", "/thriveph2.jpg", "/thriveph3.jpg"]}
+          description="THRIVEPH is a digital platform that empowers Filipino artisans and small businesses by providing a beautiful, accessible space to showcase their products and grow online."
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'NEXTAUTH', 'REACT', 'TAILWIND', 'ANIMEJS', 'MONGODB', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
+          linkPath="https://thriveph.vercel.app/"
         />
 
         <button
@@ -208,11 +208,11 @@ export default function Work() {
       {showFourthProject && (
         <div ref={fourthProject} id="fourth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
-            title="NOTEPUD"
-            description="Notepud is a simple and efficient web application for taking notes and managing tasks. It helps users stay organized with an intuitive interface and essential features for productivity."
-            imagePath="/notepud.jpg"
-            linkPath="https://github.com/jeric-p-rectin/React_App-Notes-with-To-dos"
-            tags={['JAVASCRIPT', 'HTML', 'CSS', 'REACT', 'VERCEL', 'GIT', 'GITHUB']}
+            title="BULALOI MANAGER"
+            description="BULALOI MANAGER is a desktop application designed to manage the apps and games available in the BULALOI web app. It allows administrators to add, update, and delete applications with ease through a user-friendly interface."
+            imagePath="/bulaloi-manager.jpg"
+            linkPath="https://github.com/jeric-p-rectin/Bulaloi-Manager-Production"
+            tags={["PYTHON", "PYQT6", "CSS", "GIT", "GITHUB", "LIBRARIES"]}
             slideOutMoreProjects={slideOutMoreProjects}
           />
         </div>
@@ -234,15 +234,17 @@ export default function Work() {
       {showSixthProject && (
         <div ref={sixthProject} id="sixth-project" className={isPhoneOrTablet ? classForPhoneAndTablet : classForDesktop}>
           <ProjectInMoreProjects
-            title="BULALOI MANAGER"
-            description="BULALOI MANAGER is a desktop application designed to manage the apps and games available in the BULALOI web app. It allows administrators to add, update, and delete applications with ease through a user-friendly interface."
-            imagePath="/bulaloi-manager.jpg"
-            linkPath="https://github.com/jeric-p-rectin/Bulaloi-Manager-Production"
-            tags={["PYTHON", "PYQT6", "CSS", "GIT", "GITHUB", "LIBRARIES"]}
+            title="BULALOI"
+            description="BULALOI is a web application that allows users to download modded and non-modded paid/free games and apps for free. It serves as an alternative app marketplace similar to the Play Store."
+            imagePath="/bulaloi-app.jpg"
+            linkPath="https://github.com/Boboe16/Bulaloi-App-Production/"
+            tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'BOOTSTRAP', 'VERCEL', 'GIT', 'GITHUB', 'LIBRARIES']}
             slideOutMoreProjects={slideOutMoreProjects}
           />
         </div>
       )}
+
+
 
       <div ref={workBottom} className="self-center size-0 invisible">tae</div>
     </div>
