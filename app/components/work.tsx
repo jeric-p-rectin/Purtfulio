@@ -162,7 +162,7 @@ export default function Work() {
           title="GreenPath"
           imagePaths={["/GreenPath.jpg"]}
           description="GreenPath is a comprehensive carbon emission tracker mobile app and web showcase designed to help users measure and reduce their environmental impact. Built using Flutter, Firebase, and Supabase, the platform features smart activity logging, AI-powered insights, and GPS auto-tracking for daily transportation. The experience is fully gamified, motivating users to adopt sustainable habits by earning XP, collecting badges, and maintaining streaks through daily eco-missions."
-          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'TAILWIND', 'ANIMEJS', 'FLUTTER', 'FIREBASE', 'LIBRARIES']}
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'REACT', 'TAILWIND', 'ANIMEJS', 'FLUTTER', 'FIREBASE', 'GIT', 'GITHUB',  'LIBRARIES']}
           linkPath="https://getgreenpath.vercel.app/"
         />
 
@@ -172,7 +172,7 @@ export default function Work() {
           title="MED-Alert"
           imagePaths={['/MED-alert.jpg']}
           description="MED-Alert (Medical Electronic Database with Alert System for School Clinics) is a centralized healthcare management platform designed to streamline clinic operations and enhance patient care. It provides secure patient record management, comprehensive data analytics, and real-time disease outbreak alerts for proactive health monitoring. By offering tailored, intuitive dashboards for administrators, health workers, and patients, the system ensures an efficient and organized approach to campus healthcare."
-          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'NEXTAUTH', 'REACT', 'TAILWIND', 'ANIMEJS', 'MYSQL', 'LIBRARIES']}
+          tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'NEXTAUTH', 'REACT', 'TAILWIND', 'ANIMEJS', 'MYSQL', 'GIT', 'GITHUB',  'LIBRARIES']}
           linkPath="https://www.medalertportal.com/"
         />
 
