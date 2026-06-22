@@ -170,7 +170,7 @@ export default function Work() {
 
         <Project
           title="MED-Alert"
-          imagePaths={['/MED-alert.jpg']}
+          imagePaths={['/MED-Alert.jpg']}
           description="MED-Alert (Medical Electronic Database with Alert System for School Clinics) is a centralized healthcare management platform designed to streamline clinic operations and enhance patient care. It provides secure patient record management, comprehensive data analytics, and real-time disease outbreak alerts for proactive health monitoring. By offering tailored, intuitive dashboards for administrators, health workers, and patients, the system ensures an efficient and organized approach to campus healthcare."
           tags={['JAVASCRIPT', 'HTML', 'CSS', 'NEXTJS', 'NEXTAUTH', 'REACT', 'TAILWIND', 'ANIMEJS', 'MYSQL', 'GIT', 'GITHUB',  'LIBRARIES']}
           linkPath="https://www.medalertportal.com/"
