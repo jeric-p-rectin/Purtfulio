@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { Abril_Fatface, Lato } from 'next/font/google';
+import { SITE_URL, SITE_NAME, TITLE, DESCRIPTION, KEYWORDS } from './seo';
 
 const abrilFatface = Abril_Fatface({
   weight: '400',
@@ -17,15 +18,10 @@ const lato = Lato({
   display: 'swap',
 });
 
-const SITE_URL = "https://jericrectin.dev";
-const SITE_NAME = "Jeric Rectin";
-const DESCRIPTION =
-  "Jeric Rectin is a full-stack developer from the Philippines who brings ideas to life with powerful digital solutions. From sleek portfolios to business platforms, he builds websites that are fast, scalable, and designed to drive growth.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Jeric Rectin — Full-stack Developer",
+    default: TITLE,
     template: "%s | Jeric Rectin",
   },
   description: DESCRIPTION,
@@ -33,45 +29,9 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
-  keywords: [
-    "Jeric Rectin",
-    "Jeric Piamonte Rectin",
-    "full-stack developer",
-    "web developer Philippines",
-    "Filipino developer",
-    "Next.js developer",
-    "React developer",
-    "portfolio",
-    "mobile app developer",
-    "Tailwind CSS",
-    "Three.js",
-  ],
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    url: SITE_URL,
-    title: "Jeric Rectin — Full-stack Developer",
-    description: DESCRIPTION,
-    siteName: SITE_NAME,
-    locale: "en_PH",
-    images: [
-      {
-        url: "/poster.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Jeric Rectin — Full-stack Developer portfolio",
-        type: "image/jpeg",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Jeric Rectin — Full-stack Developer",
-    description: DESCRIPTION,
-    images: ["/poster.jpg"],
-  },
+  keywords: KEYWORDS,
+  // No openGraph/twitter/canonical here on purpose: each route sets its own
+  // so `/` can advertise the icon and `/portfolio` the poster.
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
