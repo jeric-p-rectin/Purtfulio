@@ -5,16 +5,12 @@ import Project from './workComponents/project';
 import anime from 'animejs';
 import ClickToVisit from './workComponents/click-to-visit';
 import { useMediaQuery } from 'react-responsive';
+import { useReveal } from '../hooks/use-reveal';
 
 export default function Work() {
   const h1AndClickToVisitRef = useRef(null);
   const buttonRef = useRef(null);
   const divRef = useRef(null);
-  const workTop = useRef<any>(null);
-  const workMiddle = useRef<any>(null);
-  const workMiddle2 = useRef<any>(null);
-  const workBottom = useRef<any>(null);
-
   const [stopAnimation, setStopAnimation] = useState(true);
   const [showMoreProjects, setShowMoreProjects] = useState(false);
   const moreProjects = useRef<any>();
@@ -53,12 +49,12 @@ export default function Work() {
     anime.timeline({ easing: 'easeOutQuad', duration: 800 })
       .add({
         targets: h1AndClickToVisitRef.current,
-        translateX: ['-100%', '0%'],
+        translateX: [-40, 0],
         opacity: [0, 1],
       })
       .add({
         targets: divRef.current,
-        translateX: ['-100%', '0%'],
+        translateX: [-40, 0],
         opacity: [0, 1],
       }, '-=400')
       .add({
@@ -70,26 +66,11 @@ export default function Work() {
       }, '-=500');
   }
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && stopAnimation) {
-            animateWorkSection();
-            setStopAnimation(false);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    if (workTop.current) observer.observe(workTop.current);
-    if (workMiddle.current) observer.observe(workMiddle.current);
-    if (workMiddle2.current) observer.observe(workMiddle2.current);
-    if (workBottom.current) observer.observe(workBottom.current);
-
-    return () => observer.disconnect();
-  }, [stopAnimation]);
+  const sectionRef = useReveal<HTMLDivElement>(() => {
+    if (!stopAnimation) return;
+    animateWorkSection();
+    setStopAnimation(false);
+  });
 
   useEffect(() => {
     if (showMoreProjects) {
@@ -99,12 +80,9 @@ export default function Work() {
         easing: 'easeOutExpo',
         duration: 800,
       });
-      document.body.style.overflow = 'hidden';
-      document.body.style.pointerEvents = 'none';
-      if (moreProjects.current) moreProjects.current.style.pointerEvents = 'auto';
+      document.body.classList.add('overlay-open');
     } else {
-      document.body.style.overflow = 'auto';
-      document.body.style.pointerEvents = 'auto';
+      document.body.classList.remove('overlay-open');
     }
   }, [showMoreProjects]);
 
@@ -149,15 +127,13 @@ export default function Work() {
   }
 
   return (
-    <div id="work-section" className="flex flex-col p-5 pt-24 h-auto">
-      <div ref={workTop} className="self-center size-0 invisible">tae</div>
-
-      <div ref={h1AndClickToVisitRef} className="flex flex-row">
-        <h1 id="work-section-PROJECTS" className="font-abril text-3xl text-primary">PROJECTS</h1>
+    <div ref={sectionRef} id="work-section" className="flex flex-col p-5 pt-24 h-auto">
+      <div ref={h1AndClickToVisitRef} className="reveal flex flex-row">
+        <h2 id="work-section-PROJECTS" className="font-abril text-3xl text-primary">PROJECTS</h2>
         <div className="size-40"><ClickToVisit /></div>
       </div>
 
-      <div className="flex flex-col" ref={divRef}>
+      <div className="reveal flex flex-col" ref={divRef}>
         <Project
           title="GreenPath"
           imagePaths={["/GreenPath.jpg"]}
@@ -166,7 +142,6 @@ export default function Work() {
           linkPath="https://getgreenpath.vercel.app/"
         />
 
-        <div ref={workMiddle} className='self-center size-0 invisible'>tae</div>
 
         <Project
           title="MED-Alert"
@@ -176,7 +151,6 @@ export default function Work() {
           linkPath="https://www.medalertportal.com/"
         />
 
-        <div ref={workMiddle2} className='self-center size-0 invisible'>tae</div>
 
         <Project
           title="THRIVEPH"
@@ -189,7 +163,7 @@ export default function Work() {
         <button
           onClick={slideInMoreProjects}
           ref={buttonRef}
-          className="font-lato text-secondary text-center text-base shadow-md border self-center rounded-md w-32 p-2 m-2 bg-fourtuary hover:bg-tertiary hover:text-primary hover:transition border-black"
+          className="reveal font-lato text-secondary text-center text-base shadow-md border self-center rounded-md w-32 p-2 m-2 bg-fourtuary hover:bg-tertiary hover:text-primary hover:transition border-black"
         >
           SEE MORE
         </button>
@@ -246,7 +220,6 @@ export default function Work() {
 
 
 
-      <div ref={workBottom} className="self-center size-0 invisible">tae</div>
     </div>
   );
 }

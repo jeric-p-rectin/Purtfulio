@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import anime from "animejs";
 import { useRouter } from 'next/navigation';
+import { useReveal } from "../hooks/use-reveal";
 
 export default function Contact() {
   const buttonCSS =
@@ -9,9 +10,6 @@ export default function Contact() {
 
   const h1AndH2Ref = useRef(null);
   const buttonsRef = useRef(null);
-  const contactTop = useRef<any>(null);
-  const contactMiddle = useRef<any>(null);
-  const contactBottom = useRef<any>(null);
   const divRef = useRef(null);
 
   const [stopAnimation, setStopAnimation] = useState(true);
@@ -63,54 +61,28 @@ export default function Contact() {
       }, "-=200");
   }
 
-  useEffect(() => {
-    if (stopAnimation) {
-      anime.set([
-        "#Contact-LET",
-        "#Contact-CONNECT",
-        "#Contact-INTERESTED",
-        ".contact-button"
-      ], { opacity: 0 });
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && stopAnimation) {
-            animateContactSection();
-            setStopAnimation(false);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    if (contactTop.current) observer.observe(contactTop.current);
-    if (contactMiddle.current) observer.observe(contactMiddle.current);
-    if (contactBottom.current) observer.observe(contactBottom.current);
-
-    return () => observer.disconnect();
-  }, [stopAnimation]);
+  const sectionRef = useReveal<HTMLDivElement>(() => {
+    if (!stopAnimation) return;
+    animateContactSection();
+    setStopAnimation(false);
+  });
 
   return (
-    <div id="contact-section" className="flex flex-col p-5 h-screen">
-      <div ref={contactTop} className='self-center size-0 invisible'>tae</div>
+    <div ref={sectionRef} id="contact-section" className="flex flex-col p-5 h-screen">
       <div ref={divRef} className="flex flex-col justify-start mt-auto mb-auto">
         <div ref={h1AndH2Ref}>
-          <h1 id="Contact-LET" className="font-abril text-3xl sm:text-5xl text-primary">LET&apos;S</h1>
-          <h1 id="Contact-CONNECT" className="font-abril text-3xl sm:text-5xl text-primary">CONNECT</h1>
-          <h2 id="Contact-INTERESTED" className="font-abril text-2xl sm:text-3xl mb-4 text-gray-300">I AM ALWAYS INTERESTED ABOUT</h2>
+          <h2 id="Contact-LET" className="reveal font-abril text-3xl sm:text-5xl text-primary">LET&apos;S</h2>
+          <h2 id="Contact-CONNECT" className="reveal font-abril text-3xl sm:text-5xl text-primary">CONNECT</h2>
+          <h3 id="Contact-INTERESTED" className="reveal font-abril text-2xl sm:text-3xl mb-4 text-gray-300">I AM ALWAYS INTERESTED ABOUT</h3>
         </div>
-        <div ref={contactMiddle} className='self-center size-1 invisible'>tae</div>
         <div ref={buttonsRef} className="flex flex-col">
-          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button`}>FRONT END DEVELOPMENT</button>
-          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button`}>BACK END DEVELOPMENT</button>
-          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button`}>SEO MARKETING</button>
-          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button`}>WEB CONSULTANT</button>
-          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button`}>BUSSINESSES AND PIZZAS</button>
+          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button reveal`}>FRONT END DEVELOPMENT</button>
+          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button reveal`}>BACK END DEVELOPMENT</button>
+          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button reveal`}>SEO MARKETING</button>
+          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button reveal`}>WEB CONSULTANT</button>
+          <button onClick={() => router.push("mailto:jerixmodz@gmail.com")} className={`${buttonCSS} contact-button reveal`}>BUSSINESSES AND PIZZAS</button>
         </div>
       </div>
-      <div ref={contactBottom} className='self-center size-0 invisible'>tae</div>
     </div>
   );
 }

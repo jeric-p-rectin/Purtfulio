@@ -62,7 +62,7 @@ export default function ChessKingDraw() {
         strokeWidth="4"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-[full] h-[full] drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+        className="w-full h-full drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
     >
         <g>
             {/* 🟡 TOP CROSS */}

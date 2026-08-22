@@ -21,7 +21,7 @@ function SvgComponent() {
       </g>
       <text
         style={{
-          fontFamily: 'Lato',
+          fontFamily: 'var(--font-lato), Lato, sans-serif',
           fontSize: '34.3821px',
           letterSpacing: '1.9px',
           lineHeight: '55.0113px',
@@ -37,11 +37,6 @@ function SvgComponent() {
       >
         Click to Visit
       </text>
-      <defs>
-        <style>
-          @import url(&apos;https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap&apos;);
-        </style>
-      </defs>
     </svg>
   );
 }

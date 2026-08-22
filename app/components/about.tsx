@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import anime from "animejs";
-import ChessModel from "./chess-model";
+import { useReveal } from "../hooks/use-reveal";
+
+const ChessModel = dynamic(() => import("./chess-model"), { ssr: false });
 
 export default function About() {
   const h1Ref = useRef(null);
   const divRef = useRef(null);
-  const aboutTop = useRef<any>(null);
-  const aboutMiddle = useRef<any>(null);
-  const aboutBottom = useRef<any>(null);
-
   const [stopAnimation, setStopAnimation] = useState(true);
+  const [showModel, setShowModel] = useState(false);
 
   function animateAboutSection() {
     anime.timeline({ easing: "easeOutQuad", duration: 800 })
@@ -65,61 +65,40 @@ export default function About() {
       }, "-=300")
   }
 
-  useEffect(() => {
-    if (stopAnimation) {
-      anime.set([
-        "#Introduction-HELLO",
-        "#Introduction-JERIC",
-        "#Introduction-JERIC-RECTIN",
-        ".Introduction-p"
-      ], {
-        opacity: 0
-      });
-    }
+  const sectionRef = useReveal<HTMLDivElement>(() => {
+    if (!stopAnimation) return;
+    animateAboutSection();
+    setStopAnimation(false);
+  });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && stopAnimation) {
-            animateAboutSection();
-            setStopAnimation(false);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    if (aboutTop.current) observer.observe(aboutTop.current);
-    if (aboutMiddle.current) observer.observe(aboutMiddle.current);
-    if (aboutBottom.current) observer.observe(aboutBottom.current);
-
-    return () => observer.disconnect();
-  }, [stopAnimation]);
+  // Mount the 3D canvas a little earlier than the reveal so it has time to
+  // initialise before it is actually looked at.
+  const modelRef = useReveal<HTMLDivElement>(
+    () => setShowModel(true),
+    { rootMargin: '0px 0px 400px 0px' }
+  );
 
   return (
-    <div id="about-section" className="flex flex-col p-5 h-auto">
-      <div ref={aboutTop} className="self-center size-0 invisible">tae1</div>
+    <div ref={sectionRef} id="about-section" className="flex flex-col p-5 h-auto">
       <div className="flex flex-col pt-20" ref={divRef}>
         <div ref={h1Ref}>
-          <h1 id="Introduction-HELLO" className="font-abril text-3xl sm:text-5xl text-primary">HELLO.</h1>
-          <h1 id="Introduction-JERIC" className="font-abril text-3xl sm:text-5xl text-gray-100">I AM JERIC</h1>
+          <h2 id="Introduction-HELLO" className="reveal font-abril text-3xl sm:text-5xl text-primary">HELLO.</h2>
+          <h2 id="Introduction-JERIC" className="reveal font-abril text-3xl sm:text-5xl text-gray-100">I AM JERIC</h2>
         </div>
-        <h2 id="Introduction-JERIC-RECTIN" className="font-abril text-gray-300 text-2xl">JERIC RECTIN</h2>
+        <h3 id="Introduction-JERIC-RECTIN" className="reveal font-abril text-gray-300 text-2xl">JERIC RECTIN</h3>
         <div>
-          <p className="Introduction-p font-lato text-sm sm:text-base my-8 text-primary">
+          <p className="Introduction-p reveal font-lato text-sm sm:text-base my-8 text-primary">
             I USE MY PASSION AND SKILLS TO CREATE AND DEVELOP APPS THAT CAN MAKE DIFFERENCE AND BRING IDEAS TO LIFE.
           </p>
-          <div ref={aboutMiddle} className="self-center size-0 invisible">tae</div>
-          <p className="Introduction-p text-sm sm:text-base mt-8 text-primary">
+          <p className="Introduction-p reveal text-sm sm:text-base mt-8 text-primary">
             I AM CONSTANTLY LEARNING AND EXPLORING NEW TECHNOLOGIES TO ENHANCE MY SKILLS
             AND STAY AHEAD IN THE EVER-EVOLVING TECH LANDSCAPE.
             WHETHER IT&apos;S DESIGNING A SLEEK WEBSITE OR DEVELOPING FUNCTIONAL WEB APPLICATION SOLUTIONS,
             I AM DEDICATED TO DELIVERING HIGH QUALITY WORK THAT EXCEEDS EXPECTATIONS.
           </p>
         </div>
-        <div ref={aboutBottom} className="self-center size-0 invisible">tae2</div>
-        <div id="Chess-Model">
-            <ChessModel />
+        <div id="Chess-Model" ref={modelRef} className="reveal h-[300px]">
+            {showModel && <ChessModel />}
         </div>
       </div>
     </div>

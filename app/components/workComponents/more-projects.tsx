@@ -47,7 +47,7 @@ export default function Component({ showProject, slideOutMoreProjects }: Compone
     <>
       <div className="flex flex-row items-center justify-between bg-[#3f3f3f] rounded-t-xl px-4 py-2">
         <CurvedArrow color="#F5F5F5" slideOutMoreProjects={() => slideOutMoreProjects({ MoreProjects: ["#more-projects"], slideOutAll: true })} />
-        <h1 className="font-abril text-xl text-primary">Embrace the Chaos</h1>
+        <h2 className="font-abril text-xl text-primary">Embrace the Chaos</h2>
         <XSymbol color="#F5F5F5" slideOutMoreProjects={() => slideOutMoreProjects({ MoreProjects: ["#more-projects"], slideOutAll: true })} />
       </div>
 

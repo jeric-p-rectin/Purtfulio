@@ -12,25 +12,10 @@ export default function Navbar() {
     const bottomLineGrowIfGlobalColorIsWhite = `text-primary text-sm w-fit after:block after:content-[''] after:h-[1px] after:bg-black after:w-full after:scale-x-0 hover:after:scale-x-100 hover:after:bg-white after:transition after:duration-300 after:origin-center`;
     const desktopBottomLineGrowIfGlobalColorIsWhite = `text-primary w-fit after:block after:content-[''] after:h-[1px] after:bg-black after:w-full after:scale-x-0 hover:after:scale-x-100 hover:after:bg-white after:transition after:duration-300 after:origin-center`;
 
-    const [activeSection, setActiveSection] = useState('');
     const sections = ['work-section', 'about-section', 'contact-section'];
 
     useEffect(() => {
         setHasMounted(true);
-
-        const handleScroll = () => {
-            sections.forEach((section) => {
-                const element = document.getElementById(section);
-                if (element) {
-                    setActiveSection(section);
-                }
-            });
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
     }, []);
 
     useEffect(() => {
@@ -55,7 +40,7 @@ export default function Navbar() {
             className={`fixed top-0 right-0 left-0 z-20 flex flex-row justify-between items-center border-b-2 border-[#FFFFFF] mx-3 h-16 px-5 backdrop-blur-sm`}
         >
             <div className="flex flex-row">
-                <h1 id="navbar-Jeric" className="font-abril text-lg sm:text-2xl text-primary">JERIC</h1>
+                <p id="navbar-Jeric" className="font-abril text-lg sm:text-2xl text-primary">JERIC</p>
             </div>
             <ul className="flex flex-row items-center gap-1 sm:gap-2">
                 {sections.map((section) => (

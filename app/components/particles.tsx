@@ -110,7 +110,11 @@ const Particles: React.FC<ParticlesProps> = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new Renderer({ depth: false, alpha: true });
+    const renderer = new Renderer({
+      depth: false,
+      alpha: true,
+      dpr: Math.min(window.devicePixelRatio || 1, 2),
+    });
     const gl = renderer.gl;
     container.appendChild(gl.canvas);
     gl.clearColor(0, 0, 0, 0);
@@ -124,7 +128,12 @@ const Particles: React.FC<ParticlesProps> = ({
       renderer.setSize(width, height);
       camera.perspective({ aspect: gl.canvas.width / gl.canvas.height });
     };
-    window.addEventListener("resize", resize, false);
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 150);
+    };
+    window.addEventListener("resize", onResize, false);
     resize();
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -187,6 +196,10 @@ const Particles: React.FC<ParticlesProps> = ({
 
     const update = (t: number) => {
       animationFrameId = requestAnimationFrame(update);
+      if (document.hidden) {
+        lastTime = t;
+        return;
+      }
       const delta = t - lastTime;
       lastTime = t;
       elapsed += delta * speed;
@@ -210,10 +223,20 @@ const Particles: React.FC<ParticlesProps> = ({
       renderer.render({ scene: particles, camera });
     };
 
-    animationFrameId = requestAnimationFrame(update);
+    const prefersReducedMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      // Draw the starfield once and leave it still.
+      program.uniforms.uTime.value = 0;
+      renderer.render({ scene: particles, camera });
+    } else {
+      animationFrameId = requestAnimationFrame(update);
+    }
 
     return () => {
-      window.removeEventListener("resize", resize);
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", onResize);
       if (moveParticlesOnHover) {
         container.removeEventListener("mousemove", handleMouseMove);
       }

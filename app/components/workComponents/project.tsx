@@ -47,9 +47,9 @@ export default function Component({
           animateArrow({ translateY: 0 })
         }}
       >
-        <h2 className="group-hover:text-quinary transition-all font-lato font-semibold text-xl text-primary">
+        <h3 className="group-hover:text-quinary transition-all font-lato font-semibold text-xl text-primary">
           {title}
-        </h2>
+        </h3>
         <div id={ArrowId} className="relative bottom-[4px]">
           <BlackArrow arrowStroke={arrowStroke as string} />
         </div>
@@ -70,6 +70,8 @@ export default function Component({
                   index === 0 ? "w-[30%]" : "w-[70%]"
                 }`}
                 style={style}
+                role="img"
+                aria-label={`${title} screenshot ${index + 1}`}
               />
             );
           }
@@ -79,6 +81,8 @@ export default function Component({
               key={index}
               className={`${baseClasses} w-full`}
               style={style}
+              role="img"
+              aria-label={`${title} screenshot`}
             />
           );
         })}

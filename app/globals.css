@@ -6,6 +6,39 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Match the app's dark gradient so there is no white flash before paint. */
+body {
+  background-color: #1a1a1a;
+}
+
+/*
+ * Scroll-reveal initial state.
+ *
+ * These elements are animated in by anime.js once they enter the viewport.
+ * Previously they rendered at their final position and anime.js yanked them
+ * to translateX(-100%) on the first frame, which read as the content
+ * "teleporting" off to the side and flying back. Hiding them up front means
+ * there is nothing visible to snap.
+ *
+ * Scoped to .js so that without JavaScript the content is simply visible
+ * rather than permanently invisible.
+ */
+.js .reveal {
+  opacity: 0;
+}
+
+/* Respect reduced-motion: show everything immediately, never hide. */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* White Scrollbar - Clean and Minimal */
 .white-scrollbar::-webkit-scrollbar {
   width: 8px;
@@ -28,23 +61,22 @@ html {
   scrollbar-color: #ffffff #1a1a1a;
 }
 
-/* #introduction-section {
-  background-image: url('/wave.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
+/*
+ * Applied to <body> while the more-projects overlay is open. Mirrors what
+ * the component used to set imperatively on body.style (overflow +
+ * pointer-events), minus the forced reflow on every toggle.
+ */
+.overlay-open {
+  overflow: hidden;
+  pointer-events: none;
 }
 
-#about-section {
-  background-image: url('/wave-2.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
+.overlay-open #more-projects,
+.overlay-open #fourth-project,
+.overlay-open #fifth-project,
+.overlay-open #sixth-project {
+  pointer-events: auto;
 }
-
-#work-section {
-  background-image: url('/wave-2.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -58,16 +90,6 @@ html {
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
-
-body {
-  background-color: white;
-  /* background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {

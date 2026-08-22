@@ -28,7 +28,7 @@ export default function Component({ title, description, imagePath, linkPath, tag
             })
           }
         />
-        <h1 className="font-abril text-lg sm:text-xl text-center text-gray-800">{title}</h1>
+        <h3 className="font-abril text-lg sm:text-xl text-center text-gray-800">{title}</h3>
         <XSymbol
           color="#000000"
           slideOutMoreProjects={() =>
